@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(fonts/Roboto/Roboto-Regular.ttf);
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(fonts/Roboto/Roboto-Bold.ttf);
+    font-style: bold;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(fonts/Roboto/Roboto-Light.ttf);
+    font-style: light;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(fonts/Roboto/Roboto-Thin.ttf);
+    font-style: thin;
+    font-weight: 100;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: rgb(0, 62, 66);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation {
+    display: flex;
+    border-left: 3px solid rgb(0, 45, 49);
+    border-right: 3px solid rgb(0, 78, 83);
+}
+
+.nav-item {
+    display: block;
+    text-decoration: none;
+    line-height: 80px;
+    color:rgb(30, 148, 156);
+    padding: 0 24px;
+    border-left: 3px solid rgb(0, 78, 83);
+    border-right: 3px solid rgb(0, 45, 49);
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-item:hover {
+    background-color:rgb(0, 78, 83);
+    color: white;
+}
+
+.nav-item:last-child {
+    border-right: 3px solid rgb(0, 45, 49);
+}
+
+.navigation .selected {
+    color: white;
+}
+
+.name {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    color:white
+}
+
+.subtitle {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color:rgb(0, 171, 184);
+}
+
+h1 {
+    color: lightgray;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 16px;
+}
+
+.portfolio-item {
+    margin: 24px auto 0;
+    padding: 16px;
+    width: 85%;
+    min-height: 240px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+}
+
+.portfolio-item:hover {
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+}
