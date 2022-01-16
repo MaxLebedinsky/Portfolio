@@ -1,27 +1,27 @@
 @font-face {
     font-family: 'Roboto';
-    src: url(fonts/Roboto/Roboto-Regular.ttf);
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
     font-style: normal;
     font-weight: 400;
 }
 
 @font-face {
     font-family: 'Roboto';
-    src: url(fonts/Roboto/Roboto-Bold.ttf);
+    src: url(../fonts/Roboto/Roboto-Bold.ttf);
     font-style: bold;
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'Roboto';
-    src: url(fonts/Roboto/Roboto-Light.ttf);
+    src: url(../fonts/Roboto/Roboto-Light.ttf);
     font-style: light;
     font-weight: 300;
 }
 
 @font-face {
     font-family: 'Roboto';
-    src: url(fonts/Roboto/Roboto-Thin.ttf);
+    src: url(../fonts/Roboto/Roboto-Thin.ttf);
     font-style: thin;
     font-weight: 100;
 }
@@ -106,17 +106,49 @@ h1 {
     margin-top: 16px;
 }
 
+h2 {
+    color: rgb(0, 84, 90);
+    margin-bottom: 24px;
+}
+
 .portfolio-item {
+    display: block;
     margin: 24px auto 0;
     padding: 16px;
     width: 85%;
-    min-height: 240px;
+    display: flex;
+    height: 240px;
     border-radius: 10px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
     box-sizing: border-box;
     transition: 0.3s ease-in-out;
 }
 
 .portfolio-item:hover {
-    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-item-left {
+    height: 100%;
+    width: 270px;
+    margin-right: 32px;
+    overflow: hidden;
+    box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.portfolio-item-left img {
+    width: 100%;
+    position: relative;
+    z-index: -2;
+}
+
+.portfolio-item-left:hover {
+    box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-item-text {
+    color: gray;
+    line-height: 1.5em;
 }
