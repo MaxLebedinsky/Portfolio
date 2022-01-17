@@ -31,15 +31,18 @@
     padding: 0;
 }
 
-body {
+body, button {
     font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    letter-spacing: 0.03em;
 }
 
 header {
     width: 100%;
     background-color: rgb(0, 62, 66);
     font-weight: 300;
-    letter-spacing: 0.03em;
+    position: fixed;
+    top: 0;
 }
 
 .wrapper {
@@ -100,10 +103,10 @@ header {
 }
 
 h1 {
-    color: lightgray;
+    color: gray;
     text-align: center;
     font-weight: 400;
-    margin-top: 16px;
+    margin-top: 100px;
 }
 
 h2 {
@@ -114,11 +117,12 @@ h2 {
 .portfolio-item {
     display: block;
     margin: 24px auto 0;
-    padding: 16px;
+    padding: 16px 24px;
     width: 85%;
     display: flex;
     height: 240px;
     border-radius: 10px;
+    color: gray;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     box-sizing: border-box;
@@ -130,6 +134,7 @@ h2 {
 }
 
 .portfolio-item-left {
+    display: flex;
     height: 100%;
     width: 270px;
     margin-right: 32px;
@@ -139,8 +144,7 @@ h2 {
 }
 
 .portfolio-item-left img {
-    width: 100%;
-    position: relative;
+    object-fit: cover;
     z-index: -2;
 }
 
@@ -148,7 +152,49 @@ h2 {
     box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.3);
 }
 
+.portfolio-item-right {
+    display: flex;
+    height: 100%;
+    /* width: 100%; */
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+
 .portfolio-item-text {
     color: gray;
     line-height: 1.5em;
+}
+
+.portfolio-item-text-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.portfolio-item-text-bottom p {
+    display: inline-block;
+}
+
+.portfolio-item-text-bottom a {
+    display: inline-block;
+    color: rgb(0, 78, 83);
+}
+
+.portfolio-item form {
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.portfolio-item button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color:rgb(0, 62, 66);
+    font-weight: 400;
+    transition: 0.3s;
+    text-decoration: underline;
+}
+
+.portfolio-item button:hover {
+    color: rgb(30, 148, 156);
 }
