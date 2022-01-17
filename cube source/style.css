@@ -1,0 +1,253 @@
+:root {
+  --unit: 1vmin;
+  --zoom: 100;
+  --available-screen-min: 665;
+  --px: calc(var(--zoom) * (var(--unit) / var(--available-screen-min)));
+  --auto-rotate-duration: 10s;
+  --auto-rotate-timing-func: ease;
+  --auto-rotate-direction: forwards;
+  --fallback-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+		Arial, Ubuntu, sans-serif, "Apple Color Emoji", "Twemoji Mozilla",
+		"Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+   -ms-text-size-adjust: none;
+       text-size-adjust: none;
+}
+
+*::before,
+*::after {
+  display: block;
+}
+
+body {
+  -ms-touch-action: none;
+      touch-action: none;
+}
+
+html {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+html:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+html,
+body {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  scrollbar-width: thin;
+  font-size: 0;
+  overflow: hidden;
+  /* to make touch gestures work correctly */
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(circle at 50% 50%, #fff, #f8f8f8);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
+
+[data-camera] {
+  --scene-size: 500;
+  --scale: 100;
+  --perspective: 1200;
+  --cameraZ: 0;
+  --cameraY: 0;
+  --translateX: 0;
+  --translateY: 0;
+  --translateZ: 0;
+}
+
+[data-camera] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  --fmt-s: calc(var(--scale, 100) / 100);
+  -webkit-transform: scale(var(--fmt-s));
+          transform: scale(var(--fmt-s));
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  -webkit-transition: -webkit-transform ease 500ms;
+  transition: -webkit-transform ease 500ms;
+  transition: transform ease 500ms;
+  transition: transform ease 500ms, -webkit-transform ease 500ms;
+  will-change: transform;
+}
+
+[data-scene] {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: calc(var(--scene-size) * var(--px));
+  height: calc(var(--scene-size) * var(--px));
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-transform: perspective(calc(var(--perspective, 1000) * 1px)) rotateX(calc(var(--cameraY, 0) * 1deg)) rotateZ(calc(var(--cameraZ, 0) * 1deg)) translate3d(calc(var(--translateX, 0) * var(--px)), calc(var(--translateY, 0) * var(--px) * -1), calc(var(--translateZ, 0) * var(--px) * -1));
+          transform: perspective(calc(var(--perspective, 1000) * 1px)) rotateX(calc(var(--cameraY, 0) * 1deg)) rotateZ(calc(var(--cameraZ, 0) * 1deg)) translate3d(calc(var(--translateX, 0) * var(--px)), calc(var(--translateY, 0) * var(--px) * -1), calc(var(--translateZ, 0) * var(--px) * -1));
+  --max-rotation: calc((360 + var(--cameraZ)) * 1deg);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+[data-camera][data-dragging] {
+  -webkit-transition: none;
+  transition: none;
+}
+
+@-webkit-keyframes rotateCamera {
+  to {
+    -webkit-transform: perspective(calc(var(--perspective, 1000) * 1px)) rotateX(calc(var(--cameraY, 0) * 1deg)) rotateZ(var(--max-rotation)) translate3d(calc(var(--translateX, 0) * var(--px)), calc(var(--translateY, 0) * var(--px) * -1), calc(var(--translateZ, 0) * var(--px) * -1));
+            transform: perspective(calc(var(--perspective, 1000) * 1px)) rotateX(calc(var(--cameraY, 0) * 1deg)) rotateZ(var(--max-rotation)) translate3d(calc(var(--translateX, 0) * var(--px)), calc(var(--translateY, 0) * var(--px) * -1), calc(var(--translateZ, 0) * var(--px) * -1));
+  }
+}
+
+@keyframes rotateCamera {
+  to {
+    -webkit-transform: perspective(calc(var(--perspective, 1000) * 1px)) rotateX(calc(var(--cameraY, 0) * 1deg)) rotateZ(var(--max-rotation)) translate3d(calc(var(--translateX, 0) * var(--px)), calc(var(--translateY, 0) * var(--px) * -1), calc(var(--translateZ, 0) * var(--px) * -1));
+            transform: perspective(calc(var(--perspective, 1000) * 1px)) rotateX(calc(var(--cameraY, 0) * 1deg)) rotateZ(var(--max-rotation)) translate3d(calc(var(--translateX, 0) * var(--px)), calc(var(--translateY, 0) * var(--px) * -1), calc(var(--translateZ, 0) * var(--px) * -1));
+  }
+}
+
+[data-scene],
+[data-camera],
+[data-3d] {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+[data-hidden],
+.class-hidden {
+  display: none;
+}
+
+.cuboid {
+  --base-width: 256;
+  --side-width: 256;
+  --height: 256;
+  --color-base: #f52d2d;
+  --color-side: #f52d2d;
+  --color-shade: rgba(0, 0, 0, 0.1);
+  --edge-fix: 0 0 0 1px rgba(0, 0, 0, 0.01);
+  --base-flw-dir: radial-gradient(white, orange, red);
+  --side-flw-dir: radial-gradient(white, orange, red);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.cuboid {
+  width: calc(var(--base-width) * var(--px));
+  height: calc(var(--side-width) * var(--px));
+  background-image: var(--base-flw-dir);
+  background-color: var(--color-base);
+}
+
+.cuboid::before, .cuboid::after {
+  top: 0;
+  width: calc(var(--height) * var(--px));
+  height: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, var(--color-shade))), var(--side-flw-dir);
+  background-image: linear-gradient(var(--color-shade) 0 0), var(--side-flw-dir);
+  background-color: var(--color-side);
+  -webkit-transform: rotateY(-90deg);
+          transform: rotateY(-90deg);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.cuboid::before {
+  left: 0;
+}
+
+.cuboid::after {
+  left: 100%;
+}
+
+.cuboid div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  height: inherit;
+  background-image: inherit;
+  background-color: inherit;
+  -webkit-transform: translateZ(calc(var(--height) * var(--px)));
+          transform: translateZ(calc(var(--height) * var(--px)));
+  -webkit-transform-style: inherit;
+          transform-style: inherit;
+}
+
+.cuboid div::before, .cuboid div::after {
+  right: 100%;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, var(--color-shade))), -webkit-gradient(linear, left top, left bottom, color-stop(0, var(--color-shade))), var(--side-flw-dir);
+  background-image: linear-gradient(var(--color-shade) 0 0), linear-gradient(var(--color-shade) 0 0), var(--side-flw-dir);
+  background-color: var(--color-side);
+  width: calc(var(--height) * var(--px));
+  height: calc(var(--base-width) * var(--px));
+  -webkit-transform: rotateX(90deg) rotateZ(90deg);
+          transform: rotateX(90deg) rotateZ(90deg);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.cuboid div::before {
+  bottom: 100%;
+}
+
+.cuboid div::after {
+  bottom: 0;
+}
+
+.cuboid::before, .cuboid::after,
+.cuboid div::before,
+.cuboid div::after {
+  content: "";
+  position: absolute;
+  display: block;
+  -webkit-box-shadow: var(--edge-fix);
+          box-shadow: var(--edge-fix);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.cuboid,
+.cuboid div {
+  -webkit-box-shadow: var(--edge-fix);
+          box-shadow: var(--edge-fix);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+[data-camera] {
+  --cameraY: 62;
+  --cameraZ: 140;
+  --translateZ: 30;
+}
+/*# sourceMappingURL=style.css.map */

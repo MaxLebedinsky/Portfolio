@@ -1,0 +1,285 @@
+// ===================
+// === starter.css ===
+// ===================
+
+:root {
+	--unit: 1vmin;
+	--zoom: 100;
+	--available-screen-min: 665;
+	--px: calc(var(--zoom) * (var(--unit) / var(--available-screen-min)));
+
+	--auto-rotate-duration: 10s;
+	--auto-rotate-timing-func: ease;
+	--auto-rotate-direction: forwards;
+
+	--fallback-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+		Arial, Ubuntu, sans-serif, "Apple Color Emoji", "Twemoji Mozilla",
+		"Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+*::before,
+*::after {
+	display: block;
+}
+
+body {
+	touch-action: none;
+}
+
+html {
+	cursor: grab;
+}
+
+html:active {
+	cursor: grabbing;
+}
+
+html,
+body {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	scrollbar-width: thin;
+	font-size: 0;
+	overflow: hidden; /* to make touch gestures work correctly */
+}
+
+html::before {
+	content: "";
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background-image: radial-gradient(circle at 50% 50%, #fff, #f8f8f8);
+	background-size: 100vw 100vh;
+	background-repeat: no-repeat;
+}
+
+// ==============
+// === 3D.css ===
+// ==============
+
+[data-camera] {
+	--scene-size: 500;
+	--scale: 100;
+	--perspective: 1200;
+	--cameraZ: 0;
+	--cameraY: 0;
+	--translateX: 0;
+	--translateY: 0;
+	--translateZ: 0;
+}
+
+[data-camera] {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	--fmt-s: calc(var(--scale, 100) / 100);
+	transform: scale(var(--fmt-s));
+	display: grid;
+	place-items: center;
+	overflow: visible;
+
+	transition: transform ease 500ms;
+	will-change: transform;
+}
+
+[data-scene] {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: calc(var(--scene-size) * var(--px));
+	height: calc(var(--scene-size) * var(--px));
+	background-color: rgba(0, 0, 0, 0.1);
+	transform: perspective(calc(var(--perspective, 1000) * 1px))
+		rotateX(calc(var(--cameraY, 0) * 1deg))
+		rotateZ(calc(var(--cameraZ, 0) * 1deg))
+		translate3d(
+			calc(var(--translateX, 0) * var(--px)),
+			calc(var(--translateY, 0) * var(--px) * -1),
+			calc(var(--translateZ, 0) * var(--px) * -1)
+		);
+	--max-rotation: calc((360 + var(--cameraZ)) * 1deg);
+	transform-origin: 50% 50%;
+}
+
+[data-camera][data-dragging] {
+	transition: none;
+}
+
+@keyframes rotateCamera {
+	to {
+		transform: perspective(calc(var(--perspective, 1000) * 1px))
+			rotateX(calc(var(--cameraY, 0) * 1deg)) rotateZ(var(--max-rotation))
+			translate3d(
+				calc(var(--translateX, 0) * var(--px)),
+				calc(var(--translateY, 0) * var(--px) * -1),
+				calc(var(--translateZ, 0) * var(--px) * -1)
+			);
+	}
+}
+
+[data-scene],
+[data-camera],
+[data-3d] {
+	transform-style: preserve-3d;
+}
+
+[data-hidden],
+.class-hidden {
+	display: none;
+}
+
+
+// * 29 December 2021
+// * CSS 3D Cubiod (a highly customizable cubiod module)
+// * ✔ less markup, ✔ responsive, ✔ extendable
+
+.cuboid {
+	--base-width: 256;
+	--side-width: 256;
+	--height: 256;
+
+	--color-base: #f52d2d;
+	--color-side: #f52d2d;
+	--color-shade: rgba(0, 0, 0, 0.1);
+	--edge-fix: 0 0 0 1px rgba(0, 0, 0, 0.01);
+
+	// --base-flw-dir: radial-gradient(circle at center, skyblue, purple 85%);
+	--base-flw-dir: radial-gradient(white, orange, red);
+	--side-flw-dir: radial-gradient(white, orange, red);
+
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@mixin cuboid {
+	width: calc(var(--base-width) * var(--px));
+	height: calc(var(--side-width) * var(--px));
+	background-image: var(--base-flw-dir);
+	background-color: var(--color-base);
+
+	&::before,
+	&::after {
+		top: 0;
+		width: calc(var(--height) * var(--px));
+		height: 100%;
+		background-image: linear-gradient(var(--color-shade) 0 0), var(--side-flw-dir);
+		background-color: var(--color-side);
+		transform: rotateY(-90deg);
+		transform-origin: top left;
+	}
+
+	&::before {
+		left: 0;
+	}
+
+	&::after {
+		left: 100%;
+	}
+
+	& div {
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		width: inherit;
+		height: inherit;
+		background-image: inherit;
+		background-color: inherit;
+
+		transform: translateZ(calc(var(--height) * var(--px)));
+		transform-style: inherit;
+
+		&::before,
+		&::after {
+			right: 100%;
+			background-image: linear-gradient(var(--color-shade) 0 0),
+				linear-gradient(var(--color-shade) 0 0), var(--side-flw-dir);
+			background-color: var(--color-side);
+			width: calc(var(--height) * var(--px));
+			height: calc(var(--base-width) * var(--px));
+			transform: rotateX(90deg) rotateZ(90deg);
+			transform-origin: bottom right;
+		}
+
+		&::before {
+			bottom: 100%;
+		}
+
+		&::after {
+			bottom: 0;
+		}
+	}
+
+	&::before,
+	&::after,
+	& div::before,
+	& div::after {
+		content: "";
+		position: absolute;
+		display: block;
+		box-shadow: var(--edge-fix);
+		box-sizing: border-box;
+	}
+
+	&,
+	& div {
+		box-shadow: var(--edge-fix);
+		box-sizing: border-box;
+	}
+}
+
+.cuboid {
+	@include cuboid;
+}
+
+// .test {
+// 	[data-camera] {
+// 		--cameraY: 62;
+// 		--cameraZ: 140; // -36
+// 		--translateZ: 30;
+// 	}
+
+// 	input,
+// 	label {
+// 		position: relative;
+// 		cursor: pointer;
+// 		z-index: 10;
+// 		margin: 14px 10px;
+// 	}
+
+// 	input:not(:checked) ~ [data-camera] .cuboid {
+// 		--base-flw-dir: none;
+// 		--side-flw-dir: none;
+// 	}
+
+// 	label {
+// 		font-size: 16px;
+// 		font-family: var(--fallback-fonts);
+// 		margin-left: 0;
+// 	}
+// }
+
+	[data-camera] {
+		--cameraY: 62;
+		--cameraZ: 140; // -36
+		--translateZ: 30;
+	}
