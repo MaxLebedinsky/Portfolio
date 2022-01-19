@@ -1,0 +1,223 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto/Roboto-Bold.ttf);
+    font-style: bold;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto/Roboto-Light.ttf);
+    font-style: light;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto/Roboto-Thin.ttf);
+    font-style: thin;
+    font-weight: 100;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, button {
+    font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    letter-spacing: 0.03em;
+    background: url(../images/background.jpg) top center;
+}
+
+/* main {
+    background: url(../images/background.jpg) ;
+} */
+
+header {
+    width: 100%;
+    background-color: rgb(0, 62, 66);
+    font-weight: 300;
+    position: fixed;
+    top: 0;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.frame {
+    margin-top: 16px;
+    box-shadow: 3px 3px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+}
+
+.annotation {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    z-index: 1;
+    background: rgba(255, 255, 255, .5);
+}
+
+.header-content {
+    width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation {
+    display: flex;
+    border-left: 3px solid rgb(0, 45, 49);
+    border-right: 3px solid rgb(0, 78, 83);
+}
+
+.nav-item {
+    display: block;
+    text-decoration: none;
+    line-height: 80px;
+    color:rgb(30, 148, 156);
+    padding: 0 24px;
+    border-left: 3px solid rgb(0, 78, 83);
+    border-right: 3px solid rgb(0, 45, 49);
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-item:hover {
+    background-color:rgb(0, 78, 83);
+    color: white;
+}
+
+.nav-item:last-child {
+    border-right: 3px solid rgb(0, 45, 49);
+}
+
+.navigation .selected {
+    color: white;
+}
+
+.name {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    color:white
+}
+
+.subtitle {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color:rgb(0, 171, 184);
+}
+
+h1 {
+    color: gray;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 100px;
+}
+
+h2 {
+    color: rgb(0, 84, 90);
+    margin-bottom: 24px;
+}
+
+.portfolio-item {
+    display: block;
+    margin: 24px auto 0;
+    padding: 16px 24px;
+    width: 85%;
+    background-color: white;
+    display: flex;
+    height: 240px;
+    border-radius: 10px;
+    color: gray;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+}
+
+.portfolio-item:hover {
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-item-left {
+    display: flex;
+    height: 100%;
+    width: 270px;
+    margin-right: 32px;
+    overflow: hidden;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.portfolio-item-left img {
+    object-fit: cover;
+}
+
+.portfolio-item-left:hover {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-item-right {
+    display: flex;
+    height: 100%;
+    /* width: 100%; */
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+
+.portfolio-item-text {
+    color: gray;
+    line-height: 1.5em;
+}
+
+.portfolio-item-text-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.portfolio-item-text-bottom p {
+    display: inline-block;
+}
+
+.portfolio-item-text-bottom a {
+    display: inline-block;
+    color: rgb(0, 78, 83);
+}
+
+.portfolio-item form {
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.portfolio-item button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color:rgb(0, 62, 66);
+    font-weight: 400;
+    transition: 0.3s;
+    text-decoration: underline;
+}
+
+.portfolio-item button:hover {
+    color: rgb(30, 148, 156);
+}

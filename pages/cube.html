@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Max Lebedinsky / front-end developer</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/cube.css">
+    <script src="../scripts/cube.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="title">
+                <p class="name">Максим Лебединский</p>
+                <p class="subtitle">Front-end разработчик</p>
+            </div>
+            <nav class="navigation">
+                <a href="../index.html" class="nav-item">Портфолио</a>
+                <a href="#" class="nav-item">Резюме</a>
+                <a href="./contacts.html" class="nav-item">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>3D Cube</h1>
+        <div class="wrapper frame">
+            <div class="annotation">
+                <p class="portfolio-item-text">
+                    <b>Rotate</b> – click and drag.
+                </p>
+                <p class="portfolio-item-text">
+                    <b>Zoom</b> – scroll mouse wheel.
+                </p>
+            </div>
+            <section data-camera="data-camera">
+                <section class="test" data-scene="data-scene">
+                    <div class="cuboid" data-3d="data-3d">
+                        <div></div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
