@@ -138,7 +138,7 @@ h2 {
 }
 
 .portfolio-item {
-    display: block;
+    /* display: block; */
     margin: 24px auto 0;
     padding: 16px 24px;
     width: 85%;
@@ -150,6 +150,7 @@ h2 {
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     box-sizing: border-box;
+    cursor: pointer;
     transition: 0.3s ease-in-out;
 }
 
@@ -198,26 +199,32 @@ h2 {
     display: inline-block;
 }
 
-.portfolio-item-text-bottom a {
+/* .portfolio-item-text-bottom a {
     display: inline-block;
     color: rgb(0, 78, 83);
-}
+    align-self: flex-end;
+    margin-left: auto;
+} */
 
 .portfolio-item form {
     align-self: flex-end;
     margin-left: auto;
 }
 
-.portfolio-item button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
+.portfolio-item a {
+    /* border: none; */
+    /* background: transparent; */
+    /* cursor: pointer; */
+    /* display: block; */
+    display: inline-block;
+    align-self: flex-end;
+    margin-left: auto;
     color:rgb(0, 62, 66);
     font-weight: 400;
     transition: 0.3s;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
-.portfolio-item button:hover {
+.portfolio-item a:hover {
     color: rgb(30, 148, 156);
 }
