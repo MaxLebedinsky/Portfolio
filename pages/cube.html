@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Max Lebedinsky / front-end developer</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/cube.css">
+    <script src="../scripts/cube.js"></script>
 </head>
 
 <body>
@@ -25,8 +27,22 @@
     </header>
     <main>
         <h1>3D Cube</h1>
-        <div class="wrapper">
-
+        <div class="wrapper frame">
+            <div class="annotation">
+                <p class="portfolio-item-text">
+                    <b>Rotate</b> – click and drag.
+                </p>
+                <p class="portfolio-item-text">
+                    <b>Zoom</b> – scroll mouse wheel.
+                </p>
+            </div>
+            <section data-camera="data-camera">
+                <section class="test" data-scene="data-scene">
+                    <div class="cuboid" data-3d="data-3d">
+                        <div></div>
+                    </div>
+                </section>
+            </section>
         </div>
     </main>
 </body>
