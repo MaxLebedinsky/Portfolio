@@ -138,7 +138,6 @@ h2 {
 }
 
 .portfolio-item {
-    /* display: block; */
     margin: 24px auto 0;
     padding: 16px 24px;
     width: 85%;
@@ -148,7 +147,6 @@ h2 {
     border-radius: 10px;
     color: gray;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
     box-sizing: border-box;
     cursor: pointer;
     transition: 0.3s ease-in-out;
@@ -179,50 +177,25 @@ h2 {
 .portfolio-item-right {
     display: flex;
     height: 100%;
-    /* width: 100%; */
     flex-direction: column;
-    /* justify-content: space-between; */
 }
 
-.portfolio-item-text {
-    color: gray;
+.portfolio-item-right p {
     line-height: 1.5em;
 }
 
-.portfolio-item-text-bottom {
-    display: flex;
-    justify-content: space-between;
+.portfolio-item-right p:last-child {
+    line-height: 1em;
     margin-top: auto;
 }
 
-.portfolio-item-text-bottom p {
-    display: inline-block;
-}
-
-/* .portfolio-item-text-bottom a {
-    display: inline-block;
-    color: rgb(0, 78, 83);
-    align-self: flex-end;
-    margin-left: auto;
-} */
-
-.portfolio-item form {
-    align-self: flex-end;
-    margin-left: auto;
-}
-
 .portfolio-item a {
-    /* border: none; */
-    /* background: transparent; */
-    /* cursor: pointer; */
-    /* display: block; */
     display: inline-block;
     align-self: flex-end;
     margin-left: auto;
     color:rgb(0, 62, 66);
     font-weight: 400;
     transition: 0.3s;
-    /* text-decoration: underline; */
 }
 
 .portfolio-item a:hover {

@@ -21,7 +21,9 @@
     width: 1000px;
     height: 600px;
     border-radius: 10px;
+    border: 1px solid #000;
     background: hsl(0, 0%, 10%);
+    margin: 0 auto;
     overflow-y: scroll;
     perspective: 800px;
     perspective-origin: 50% 30%;
@@ -136,7 +138,6 @@
 	transform: translatez(-150px) rotatey(var(--turn));
     transition: .5s ease-in-out;
     cursor: default;
-	box-sizing: border-box;
 }
 
 .room:nth-child(odd) > .room-content {
