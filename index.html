@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Max Lebedinsky / front-end developer</title>
     <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://kit.fontawesome.com/15cdd4c2be.js" crossorigin="anonymous"></script>
+    <script src="./scripts/main.js" defer></script>
 </head>
 
 <body>
@@ -26,7 +28,7 @@
     <main>
         <h1>Портфолио</h1>
         <div class="wrapper">
-            <section class="portfolio-item" onclick="location.href='./pages/cube.html'">
+            <section class="portfolio-item" id="cube" onclick="location.href='./pages/cube.html'">
                 <div class="portfolio-item-left">
                     <img src="images/cube.jpg" alt="cube">
                 </div>
@@ -37,7 +39,17 @@
                     <p>Made with just 2 divs in HTML.</p>
                     <p>HTML / CSS / Javascript</p>
                 </div>
-                <a href="./pages/contacts.html">GitHub</a>
+                <div class="github-popup-opener" onclick="event.stopPropagation()">GitHub
+                    <i class="fas fa-angle-down"></i>
+                    <div class="github-popup-content">
+                        <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/cube.html"
+                            onclick="event.stopPropagation()" target="_blank">cube.HTML</a>
+                        <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/cube.css"
+                            onclick="event.stopPropagation()" target="_blank">cube.CSS</a>
+                        <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
+                            onclick="event.stopPropagation()" target="_blank">main.CSS</a>
+                    </div>
+                </div>
             </section>
             <section class="portfolio-item" onclick="location.href='./pages/building.html'">
                 <div class="portfolio-item-left">
@@ -50,7 +62,17 @@
                     <p>Pure CSS, no Javascript</p>
                     <p>HTML / CSS</p>
                 </div>
-                <a href="./pages/contacts.html">GitHub</a>
+                <div class="github-popup-opener" onclick="event.stopPropagation()">GitHub
+                    <i class="fas fa-angle-down"></i>
+                    <div class="github-popup-content">
+                        <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/building.html"
+                            onclick="event.stopPropagation()" target="_blank">building.HTML</a>
+                        <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/building.css"
+                            onclick="event.stopPropagation()" target="_blank">building.CSS</a>
+                        <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
+                            onclick="event.stopPropagation()" target="_blank">main.CSS</a>
+                    </div>
+                </div>
             </section>
             <section class="portfolio-item">
                 item #3
@@ -61,8 +83,16 @@
             <section class="portfolio-item">
                 item #5
             </section>
+            <div class="test">test
+                <div class="links">some links</div>
+            </div>
+            <div class="test">test
+                <div class="links">some links</div>
+            </div>
+
         </div>
     </main>
+    <!-- <script src="./scripts/main.js"></script> -->
 </body>
 
 </html>

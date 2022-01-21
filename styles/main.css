@@ -189,15 +189,61 @@ h2 {
     margin-top: auto;
 }
 
-.portfolio-item a {
+/* .portfolio-item a {
     display: inline-block;
     align-self: flex-end;
     margin-left: auto;
     color:rgb(0, 62, 66);
     font-weight: 400;
     transition: 0.3s;
+} */
+
+.github-popup-opener {
+    align-self: flex-start;
+    margin-left: auto;
+    text-align: right;
+    color:rgb(0, 62, 66);
+    font-weight: 400;
+    transition: 0.3s;
 }
 
-.portfolio-item a:hover {
+.github-popup-opener:hover {
     color: rgb(30, 148, 156);
+}
+
+.github-popup-opener:hover > .github-popup-content {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.github-popup-content {
+    opacity: 0;
+    padding: 8px 0;
+    color: gray;
+    transform-origin: 0% 0%;
+    transform: scaleY(.4);
+    transition: .3s ease-in-out;
+}
+
+.github-popup-content a {
+    display: block;
+    background-color: rgb(245, 245, 245);
+    margin-top: 2px;
+    color: rgb(30, 148, 156);
+    padding: 6px 24px;
+    transition: 0.3s ease-in-out;
+}
+
+.github-popup-content a:hover {
+    background-color: rgb(192, 192, 192);
+    color: white;
+}
+
+.links {
+    opacity: 0;
+    transition: .5s;
+}
+
+.test:hover > .links {
+    opacity: 100;
 }
