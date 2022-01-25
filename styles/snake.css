@@ -1,0 +1,52 @@
+.frame {
+    background: #2e353d;
+    text-align: center;
+}
+
+button {
+    width: 150px;
+    padding: 15px;
+    margin: 10px;
+    color: white;
+    background: #007b32;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #009641;
+}
+
+button:active {
+    background: #9cfb02;
+    color: black;
+}
+
+#game {
+    border-collapse: collapse;
+    margin: 30px auto;
+    min-height: 484px;
+}
+
+td {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #6b7177;
+}
+
+.food {
+    /* background: #00d021; */
+    background: orangered;
+    box-shadow: 0 0 2px orangered, 0 0 10px orangered;
+}
+
+.snakeBody {
+    background: limegreen;
+    box-shadow: 0 0 2px limegreen, 0 0 10px limegreen;
+}
+
+#message {
+    color: orange;
+    font-size: 24px;
+}
