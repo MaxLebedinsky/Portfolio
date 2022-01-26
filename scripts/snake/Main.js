@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
     //     console.log(settings.godMode);
     // });
 
-    settings.init({ speed: 10, winLength: 5});
+    settings.init({ speed: 10, winLength: 20});
     board.init(settings, snake);
     food.init(settings, snake, board);
     status.setPaused();

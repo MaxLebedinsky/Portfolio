@@ -35,9 +35,14 @@ class Board {
      */
     renderSnake() {
         const snakeBodyElems = this.getSnakeBodyElems(this.snake.body);
+        const opacityStep = 0.7 / this.snake.body.length;
+        let currentOpacity = 1;
         if (snakeBodyElems) {
             snakeBodyElems.forEach(function(tdEl) {
                 tdEl.classList.add('snakeBody');
+                tdEl.style.opacity = currentOpacity;
+                tdEl.style.filter = 'blur(5px)';
+                currentOpacity = currentOpacity - opacityStep;
             })
         }
     }
@@ -49,6 +54,8 @@ class Board {
         const tdElems = document.querySelectorAll('td');
         tdElems.forEach(function(td) {
             td.className = "";
+            td.style.opacity = 1;
+            td.style.filter = 'none';
         });
     }
 

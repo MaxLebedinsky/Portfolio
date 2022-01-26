@@ -32,13 +32,13 @@ button:active {
 td {
     width: 20px;
     height: 20px;
-    border: 1px solid #6b7177;
+    border: 1px solid #54595e;
 }
 
 .food {
     /* background: #00d021; */
     background: orangered;
-    box-shadow: 0 0 2px orangered, 0 0 10px orangered;
+    box-shadow: 0 0 2px orangered, 0 0 10px 2px orangered;
 }
 
 .snakeBody {

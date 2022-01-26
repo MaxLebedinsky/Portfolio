@@ -41,6 +41,7 @@ class Game {
      */
     start() {
         if (this.status.isPaused()) {
+            this.godMode = this.godModeEl.checked;
             this.status.setPlaying();
             this.tickIdentifier = setInterval(this.doTick.bind(this), 1000 / this.settings.speed);
         }
@@ -52,7 +53,7 @@ class Game {
         console.log('restart');
         this.setMessage('');
         this.status.setPlaying();
-        this.settings.init({ speed: 10, winLength: 5 });
+        this.settings.init({ speed: 10, winLength: 10 });
         this.board.init(this.settings, this.snake);
         this.food.init(this.settings, this.snake, this.board);
         this.init(this.settings, this.status, this.board, this.snake, this.menu, this.food);
