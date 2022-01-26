@@ -2,6 +2,8 @@ class Game {
     constructor() {
         this.tickIdentifier = null;
         this.messageEl = document.getElementById('message');
+        this.scoreEl = document.getElementById('score-value');
+        this.godModeEl = document.getElementById('god-mode-checkbox');
     }
 
     /** 
@@ -21,6 +23,8 @@ class Game {
         this.snake = snake;
         this.menu = menu;
         this.food = food;
+        this.scoreValue = 0;
+        this.godMode = this.godModeEl.checked;
     }
 
     /**
@@ -36,7 +40,6 @@ class Game {
      * Метод запускает игру.
      */
     start() {
-        console.log(this.settings.godMode);
         if (this.status.isPaused()) {
             this.status.setPlaying();
             this.tickIdentifier = setInterval(this.doTick.bind(this), 1000 / this.settings.speed);
@@ -91,11 +94,14 @@ class Game {
         }
         if (this.board.isHeadOnFood()) {
             this.snake.increaseBody();
+            this.scoreValue++;
+            console.log(this.scoreValue);
             this.food.setNewFood();
         }
         this.board.clearBoard();
         this.food.setFood();
         this.board.renderSnake();
+        this.scoreEl.innerHTML = (`${this.scoreValue}`);
     }
 
     /**
@@ -105,7 +111,7 @@ class Game {
      * для выигрыша, тогда true, иначе false.
      */
     isGameWon() {
-        if (this.snake.body.length == this.settings.winLength) {
+        if (this.snake.body.length == this.settings.winLength + 1) {
             clearInterval(this.tickIdentifier);
             this.setMessage('Вы выиграли');
             return true;
@@ -122,8 +128,9 @@ class Game {
     isGameLost() {
         if (this.board.isNextStepToWall(this.snake.body[0])) {
 
-            // если дошли до стены, то не прерываем игру и не возвращаем true, а переписываем координаты головы
-            if (!this.settings.godMode) {
+            // если дошли до стены, то в зависимости от godMode либо прерываем игру, 
+            // либо переписываем координаты головы т тграем дальше
+            if (!this.godMode) {
                 clearInterval(this.tickIdentifier); 
                 this.setMessage('Вы проиграли');
                 return true;
