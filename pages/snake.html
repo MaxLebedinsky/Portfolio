@@ -29,11 +29,17 @@
         <h1>Snake Game</h1>
         <div class="wrapper frame">
             <table id="game"></table>
-            <div class="score">Score <span id="score-value"></span> </div>
-            <button id="startBtn">Старт</button>
-            <button id="pauseBtn">Пауза</button>
+            <div class="score">Score: <span id="score-value"></span> </div>
+            <button id="startBtn">Start</button>
+            <button id="pauseBtn">Pause</button>
             <input type="checkbox" id="god-mode-checkbox">
             <label for="god-mode-checkbox">No lose mode</label>
+            <div id="speed-display"></div>
+            <input type="range" min="1" max="5" id="speed-select">
+            <label for="speed-select">Speed</label>
+            <div id="length-display"></div>
+            <input type="range" min="5" max="20" id="length-select">
+            <label for="length-select">Length to win</label>
             <div id="message"></div>
         </div>
     </main>

@@ -41,7 +41,7 @@ class Board {
             snakeBodyElems.forEach(function(tdEl) {
                 tdEl.classList.add('snakeBody');
                 tdEl.style.opacity = currentOpacity;
-                tdEl.style.filter = 'blur(5px)';
+                tdEl.style.filter = 'blur(4px)';
                 currentOpacity = currentOpacity - opacityStep;
             })
         }
@@ -108,6 +108,7 @@ class Board {
     renderFood(coords) {
         const foodCell = this.getCellEl(coords.x, coords.y);
         foodCell.classList.add('food');
+        foodCell.style.filter = 'blur(4px)';
     }
 
     /**

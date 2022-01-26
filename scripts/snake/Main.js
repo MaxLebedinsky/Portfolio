@@ -6,16 +6,11 @@ window.addEventListener('load', () => {
     const menu = new Menu();
     const food = new Food();
     const game = new Game();
-    const score = 0;
 
-    // const godModeCheckbox = document.getElementById('god-mode-checkbox');
-    // godModeCheckbox.addEventListener("change", () => {
-    //     console.log(godModeCheckbox.checked);
-    //     settings.godMode = godModeCheckbox.checked;
-    //     console.log(settings.godMode);
-    // });
-
-    settings.init({ speed: 10, winLength: 20});
+    game.lengthEl.value = 7;
+    settings.init({ speed: game.speedEl.value * 3, winLength: game.lengthEl.value * 1});
+    console.log('speed: ', game.speedEl.value * 3);
+    console.log('length: ', game.lengthEl.value * 1);
     board.init(settings, snake);
     food.init(settings, snake, board);
     status.setPaused();

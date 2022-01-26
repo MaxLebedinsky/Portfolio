@@ -4,6 +4,10 @@ class Game {
         this.messageEl = document.getElementById('message');
         this.scoreEl = document.getElementById('score-value');
         this.godModeEl = document.getElementById('god-mode-checkbox');
+        this.speedEl = document.getElementById('speed-select');
+        this.lengthEl = document.getElementById('length-select');
+        this.speedDisplayEl = document.getElementById('speed-display');
+        this.lengthDisplayEl = document.getElementById('length-display');
     }
 
     /** 
@@ -25,6 +29,14 @@ class Game {
         this.food = food;
         this.scoreValue = 0;
         this.godMode = this.godModeEl.checked;
+        this.speedDisplayEl.innerHTML = `${this.speedEl.value}`;
+        this.speedEl.addEventListener('change', (e) => {
+            this.speedDisplayEl.innerHTML = `${e.target.value}`;
+        });
+        this.lengthDisplayEl.innerHTML = `${this.lengthEl.value}`;
+        this.lengthEl.addEventListener('change', (e) => {
+            this.lengthDisplayEl.innerHTML = `${e.target.value}`;
+        })
     }
 
     /**
@@ -43,6 +55,9 @@ class Game {
         if (this.status.isPaused()) {
             this.godMode = this.godModeEl.checked;
             this.status.setPlaying();
+            this.settings.init({ speed: this.speedEl.value * 3, winLength: this.lengthEl.value * 1});
+            console.log('speed: ', this.settings.speed);
+            console.log('length: ', this.settings.winLength);
             this.tickIdentifier = setInterval(this.doTick.bind(this), 1000 / this.settings.speed);
         }
         // если проиграли или выиграли и нажали старт, перезапускаем игру
@@ -53,7 +68,9 @@ class Game {
         console.log('restart');
         this.setMessage('');
         this.status.setPlaying();
-        this.settings.init({ speed: 10, winLength: 10 });
+        this.settings.init({ speed: this.speedEl.value * 3, winLength: this.lengthEl.value * 1});
+        console.log('speed: ', this.settings.speed);
+        console.log('length: ', this.settings.winLength);
         this.board.init(this.settings, this.snake);
         this.food.init(this.settings, this.snake, this.board);
         this.init(this.settings, this.status, this.board, this.snake, this.menu, this.food);
@@ -93,16 +110,19 @@ class Game {
         if (this.isGameWon()) {
             return;
         }
+        
         if (this.board.isHeadOnFood()) {
             this.snake.increaseBody();
             this.scoreValue++;
-            console.log(this.scoreValue);
-            this.food.setNewFood();
+            if (!this.isGameWon()) this.food.setNewFood();
         }
-        this.board.clearBoard();
-        this.food.setFood();
-        this.board.renderSnake();
-        this.scoreEl.innerHTML = (`${this.scoreValue}`);
+        
+        if (!this.isGameWon()) {
+            this.board.clearBoard();
+            this.food.setFood();
+            this.board.renderSnake();
+        }
+        this.scoreEl.innerHTML = `${this.scoreValue}`;
     }
 
     /**
@@ -114,7 +134,7 @@ class Game {
     isGameWon() {
         if (this.snake.body.length == this.settings.winLength + 1) {
             clearInterval(this.tickIdentifier);
-            this.setMessage('Вы выиграли');
+            this.setMessage('You won!');
             return true;
         }
         return false;
@@ -133,7 +153,7 @@ class Game {
             // либо переписываем координаты головы т тграем дальше
             if (!this.godMode) {
                 clearInterval(this.tickIdentifier); 
-                this.setMessage('Вы проиграли');
+                this.setMessage('You lost');
                 return true;
             } else {
 

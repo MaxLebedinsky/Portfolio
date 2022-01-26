@@ -24,7 +24,7 @@ class Settings {
         }
         this.colsCount = defaultParams.colsCount;
 
-        if (defaultParams.speed < 1 || defaultParams.speed > 10) {
+        if (defaultParams.speed < 1 || defaultParams.speed > 15) {
             throw new Error('Неверные настройки, значение speed должно быть в диапазоне [1, 10].');
         }
         this.speed = defaultParams.speed;

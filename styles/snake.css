@@ -38,12 +38,13 @@ td {
 .food {
     /* background: #00d021; */
     background: orangered;
-    box-shadow: 0 0 2px orangered, 0 0 10px 2px orangered;
+    /* box-shadow: 0 0 2px orangered, 0 0 10px 2px orangered; */
+    /* filter: blur(4px); */
 }
 
 .snakeBody {
     background: limegreen;
-    box-shadow: 0 0 2px limegreen, 0 0 10px limegreen;
+    /* box-shadow: 0 0 2px limegreen, 0 0 10px limegreen; */
 }
 
 #message {
