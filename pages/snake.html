@@ -28,20 +28,31 @@
     <main>
         <h1>Snake Game</h1>
         <div class="wrapper frame">
-            <table id="game"></table>
-            <div class="score">Score: <span id="score-value"></span> </div>
-            <button id="startBtn">Start</button>
-            <button id="pauseBtn">Pause</button>
-            <input type="checkbox" id="god-mode-checkbox">
-            <label for="god-mode-checkbox">No lose mode</label>
-            <div id="speed-display"></div>
-            <input type="range" min="1" max="5" id="speed-select">
-            <label for="speed-select">Speed</label>
-            <div id="length-display"></div>
-            <input type="range" min="5" max="20" id="length-select">
-            <label for="length-select">Length to win</label>
-            <div id="message"></div>
+            <div id="game-container">
+                <table id="game"></table>
+                <div id="message"></div>
+            </div>
+            <div>
+                <div class="score">Score: <span id="score-value"></span> </div>
+
+                <input type="checkbox" id="god-mode-checkbox">
+                <span><label for="god-mode-checkbox">Immortal mode</label></span>
+
+                <input type="range" min="1" max="5" id="speed-select">
+                <label for="speed-select">Speed: </label> <span id="speed-display"></span>
+
+                <input type="range" min="5" max="20" id="length-select">
+                <label for="length-select">Eat to win: </label><span id="length-display"></span>
+                <div>
+                    <button id="startBtn">Start</button>
+                    <button id="pauseBtn">Pause</button>
+                </div>
+                <p class="tip">Use arrow keys <span>&#129052;</span> <span>&#129054</span>
+                    <span>&#129053</span> <span>&#129055</span>
+                </p>
+            </div>
         </div>
+
     </main>
     <script src="../scripts/snake/Board.js"></script>
     <script src="../scripts/snake/Food.js"></script>

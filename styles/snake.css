@@ -1,12 +1,18 @@
 .frame {
     background: #2e353d;
     text-align: center;
+    color: white;
+    font-size: 1.2em;
+    padding: 30px 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
 }
 
 button {
-    width: 150px;
+    width: 130px;
     padding: 15px;
-    margin: 10px;
+    margin: 40px 10px;
     color: white;
     background: #007b32;
     border: none;
@@ -25,8 +31,11 @@ button:active {
 
 #game {
     border-collapse: collapse;
-    margin: 30px auto;
-    min-height: 484px;
+}
+
+#game-container {
+    position: relative;
+    margin-right: 50px;
 }
 
 td {
@@ -36,18 +45,55 @@ td {
 }
 
 .food {
-    /* background: #00d021; */
     background: orangered;
-    /* box-shadow: 0 0 2px orangered, 0 0 10px 2px orangered; */
-    /* filter: blur(4px); */
 }
 
 .snakeBody {
     background: limegreen;
-    /* box-shadow: 0 0 2px limegreen, 0 0 10px limegreen; */
 }
 
 #message {
+    position: absolute;
+    text-align: center;
     color: orange;
-    font-size: 24px;
+    text-shadow: 0px 0px 10px orange;
+    width: 240px;
+    top: 37%;
+    left: calc(50% - 120px);
+    font-size: 3em;
+    height: 80px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.score {
+    font-size: 2em;
+    padding-bottom: 32px;
+}
+
+.score > span {
+    font-weight: bold;
+}
+
+#god-mode-checkbox {
+    margin: 0 8px 0 0;
+    width: 24px;
+    height: 24px;
+}
+
+#god-mode-checkbox + span {
+    vertical-align: top;
+}
+
+#speed-select, #length-select {
+    display: block;
+    margin: 32px auto 8px;
+}
+
+.tip > span {
+    border: 1px #ffffffaa solid;
+    border-radius: 6px;
+    padding: 0 3px;
+    display: inline-block;
+    width: 20px;
 }

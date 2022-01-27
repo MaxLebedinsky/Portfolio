@@ -47,7 +47,7 @@ header {
 }
 
 .wrapper {
-    width: 1200px;
+    width: 900px;
     margin: 0 auto;
     overflow: hidden;
 }
@@ -176,11 +176,17 @@ h2 {
     display: flex;
     height: 100%;
     flex-direction: column;
+    max-width: 45%;
 }
 
 .portfolio-item-right p {
     line-height: 1.5em;
 }
+
+/* .portfolio-item-right p::marker {
+    color: green;
+    margin-right: 10px;
+} */
 
 .portfolio-item-right p:last-child {
     line-height: 1em;
