@@ -129,8 +129,8 @@ h1 {
 }
 
 h2 {
-    color: rgb(0, 84, 90);
-    margin-bottom: 24px;
+    color: teal;
+    margin-bottom: 8px;
 }
 
 .portfolio-item {
@@ -179,6 +179,25 @@ h2 {
     width: 470px;
 }
 
+.portfolio-item-right ul {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-item-right li {
+    line-height: 1.5em;
+}
+
+.portfolio-item-right li::marker {
+    color: rgb(30, 148, 156);
+}
+
+/* .portfolio-item-right li:last-child {
+    list-style-type: none;
+    margin-left: -20px;
+} */
+
 .portfolio-item-right-header {
     display: flex;
     justify-content: space-between;
@@ -188,12 +207,7 @@ h2 {
     line-height: 1.5em;
 }
 
-/* .portfolio-item-right p::marker {
-    color: green;
-    margin-right: 10px;
-} */
-
-.portfolio-item-right p:last-child {
+.portfolio-item-right-footer, .portfolio-item-right p:last-child {
     line-height: 1em;
     margin-top: auto;
 }

@@ -29,61 +29,72 @@
         <h1>Портфолио</h1>
         <div class="wrapper">
 
-            <section class="portfolio-item" id="cube" onclick="location.href='./pages/cube.html'">
+            <section class="portfolio-item" onclick="location.href='./pages/cube.html'">
                 <div class="portfolio-item-left">
                     <img src="images/cube.jpg" alt="cube">
                 </div>
                 <div class="portfolio-item-right">
-                    <h2>3D Cube</h2>
-                    <p>Rotate – click and drag </p>
-                    <p>Zoom – scroll mouse wheel</p>
-                    <p>Made with just 2 divs in HTML</p>
-                    <p>HTML / CSS / Javascript</p>
-                </div>
-                <div class="github-popup-opener" onclick="event.stopPropagation()">
-                    <div class="git-title">GitHub
-                        <i class="fas fa-angle-down"></i>
-                        <div class="github-popup-content">
-                            <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/cube.html"
-                                onclick="event.stopPropagation()" target="_blank">cube.HTML</a>
-                            <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/scripts/cube.js"
-                                onclick="event.stopPropagation()" target="_blank">cube.JS</a>
-                            <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/cube.css"
-                                onclick="event.stopPropagation()" target="_blank">cube.CSS</a>
-                            <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
-                                onclick="event.stopPropagation()" target="_blank">main.CSS</a>
-
+                    <div class="portfolio-item-right-header">
+                        <h2>3D Cube</h2>
+                        <div class="github-popup-opener" onclick="event.stopPropagation()">
+                            <div class="git-title">GitHub <i class="fas fa-angle-down"></i>
+                                <div class="github-popup-content">
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/cube.html"
+                                        onclick="event.stopPropagation()" target="_blank">cube.HTML</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/scripts/cube.js"
+                                        onclick="event.stopPropagation()" target="_blank">cube.JS</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/cube.css"
+                                        onclick="event.stopPropagation()" target="_blank">cube.CSS</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
+                                        onclick="event.stopPropagation()" target="_blank">main.CSS</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <ul>
+                        <li>Rotate – click and drag</li>
+                        <li>Zoom – scroll mouse wheel</li>
+                        <li>Made with just 2 divs in HTML</li>
+                    </ul>
+                    <p class="portfolio-item-right-footer">HTML / CSS / Javascript</p>
                 </div>
             </section>
+
+
+
+
             <section class="portfolio-item" onclick="location.href='./pages/building.html'">
                 <div class="portfolio-item-left">
                     <img src="images/building.jpg" alt="building">
                 </div>
                 <div class="portfolio-item-right">
-                    <h2>Scrollable Building</h2>
-                    <p>Scroll down to see more rooms</p>
-                    <p>Hover the words to rotate</p>
-                    <p>Pure CSS, no Javascript</p>
-                    <p>HTML / CSS</p>
-                </div>
-                <div class="github-popup-opener" onclick="event.stopPropagation()">
-                    <div class="git-title">GitHub <i class="fas fa-angle-down"></i>
-                        <div class="github-popup-content">
-                            <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/building.html"
-                                onclick="event.stopPropagation()" target="_blank">building.HTML</a>
-                            <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/building.css"
-                                onclick="event.stopPropagation()" target="_blank">building.CSS</a>
-                            <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
-                                onclick="event.stopPropagation()" target="_blank">main.CSS</a>
+                    <div class="portfolio-item-right-header">
+                        <h2>Scrollable Building</h2>
+                        <div class="github-popup-opener" onclick="event.stopPropagation()">
+                            <div class="git-title">GitHub <i class="fas fa-angle-down"></i>
+                                <div class="github-popup-content">
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/building.html"
+                                        onclick="event.stopPropagation()" target="_blank">building.HTML</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/building.css"
+                                        onclick="event.stopPropagation()" target="_blank">building.CSS</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
+                                        onclick="event.stopPropagation()" target="_blank">main.CSS</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <ul>
+                        <li>Scroll down to see more rooms</li>
+                        <li>Hover the words to rotate</li>
+                        <li>Pure CSS, no Javascript</li>
+                    </ul>
+                    <p class="portfolio-item-right-footer">HTML / CSS</p>
                 </div>
             </section>
+
             <section class="portfolio-item" onclick="location.href='./pages/follower.html'">
                 <div class="portfolio-item-left">
-                    <img src="images/follower.png" alt="building">
+                    <img src="images/follower.png" alt="follower">
                 </div>
                 <div class="portfolio-item-right">
                     <div class="portfolio-item-right-header">
@@ -103,9 +114,11 @@
                             </div>
                         </div>
                     </div>
-                    <p>Cat tracks mouse movements</p>
-                    <p>Click the buttons to change the cursor</p>
-                    <p>HTML / SCSS / Javascript / JQuery</p>
+                    <ul>
+                        <li>Cat tracks mouse movements</li>
+                        <li>Click the buttons to change the cursor</li>
+                    </ul>
+                    <p class="portfolio-item-right-footer">HTML / SCSS / Javascript / JQuery</p>
                 </div>
             </section>
 
@@ -119,22 +132,24 @@
                         <div class="github-popup-opener" onclick="event.stopPropagation()">
                             <div class="git-title">GitHub <i class="fas fa-angle-down"></i>
                                 <div class="github-popup-content">
-                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/follower.html"
-                                        onclick="event.stopPropagation()" target="_blank">follower.HTML</a>
-                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/scripts/follower.js"
-                                        onclick="event.stopPropagation()" target="_blank">follower.JS</a>
-                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/follower.css"
-                                        onclick="event.stopPropagation()" target="_blank">follower.CSS</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/snake.html"
+                                        onclick="event.stopPropagation()" target="_blank">snake.HTML</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/tree/master/scripts/snake"
+                                        onclick="event.stopPropagation()" target="_blank">JS folder</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/snake.css"
+                                        onclick="event.stopPropagation()" target="_blank">snake.CSS</a>
                                     <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
                                         onclick="event.stopPropagation()" target="_blank">main.CSS</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <p>Use arrow keys to turn the snake</p>
-                    <p>Adjust speed and score required to win</p>
-                    <p>Turn on «Immortal mode» to pass through the walls</p>
-                    <p>HTML / CSS / Javascript</p>
+                    <ul>
+                        <li>Use arrow keys to turn the snake</li>
+                        <li>Adjust speed and score required to win</li>
+                        <li>Turn on «Immortal mode» to pass through the walls</li>
+                    </ul>
+                    <p class="portfolio-item-right-footer">HTML / CSS / Javascript</p>
                 </div>
             </section>
 
@@ -147,13 +162,6 @@
             <section class="portfolio-item">
                 item #5
             </section>
-            <div class="test">test
-                <div class="links">some links</div>
-            </div>
-            <div class="test">test
-                <div class="links">some links</div>
-            </div>
-
         </div>
     </main>
     <!-- <script src="./scripts/main.js"></script> -->
