@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Board / Portfolio - Max Lebedinsky / front-end developer</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/task-board.css">
+    <script src="../scripts/task-board.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="../index.html" class="name">Максим Лебединский</a>
+                <p class="subtitle">Front-end разработчик</p>
+            </div>
+            <nav class="navigation">
+                <a href="../index.html" class="nav-item">Портфолио</a>
+                <a href="../pages/resume.html" class="nav-item">Резюме</a>
+                <a href="../pages/contacts.html" class="nav-item">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Task Board</h1>
+        <div class="wrapper frame">
+            <div class="app">
+                <div class="boards">
+                    <div class="boards-item">
+                        <span contenteditable="true" class="title">Enter title</span>
+                        <div class="list">
+                            <div class="list-item" draggable="true">Start card</div>
+                        </div>
+                        <div class="form">
+                            <textarea class="textarea" placeholder="Enter card name"></textarea>
+                            <div class="buttons">
+                                <button class="add-item-btn">Add card</button>
+                                <button class="cancel-item-btn">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="add-btn"><span> + </span>Add card</div>
+                    </div>
+                </div>
+                <div class="button">Add board</div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
