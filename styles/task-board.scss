@@ -12,6 +12,7 @@
 
     .boards {
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
 
         &-item {
@@ -21,7 +22,7 @@
             max-width: 200px;
             width: 100%;
             background-color: rgba(0, 0, 0, .5);
-            margin: 0 15px;
+            margin: 0 15px 15px;
             padding: 10px;
             transition: .3s all ease-in-out;
             border-radius: 3px;
@@ -110,6 +111,7 @@
                 height: 30px;
                 background: rgba(155, 155, 155, .3);
                 border-radius: 3px;
+                border: 1px solid rgba(255, 255, 255, .5);
                 margin-top: 5px;
                 display: flex;
                 font-size: 12px;
