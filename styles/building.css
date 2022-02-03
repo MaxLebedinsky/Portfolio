@@ -18,7 +18,7 @@
 }
 
 .frame {
-    width: 1000px;
+    /* width: 1000px; */
     height: 600px;
     border-radius: 10px;
     background: hsl(0, 0%, 10%);
@@ -129,7 +129,7 @@
 	width: 100%;
 	color: white;
 	font-family: "Segoe UI", "Roboto", Arial, Helvetica, sans-serif;
-	font-size: 6em;
+	font-size: 4em;
 	font-weight: 200;
 	text-align: center;
 	text-shadow: 0 3px 8px hsl(0 0% 0% / 80%);

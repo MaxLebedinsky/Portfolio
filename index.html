@@ -13,13 +13,13 @@
 <body>
     <header>
         <div class="header-content">
-            <div class="title">
-                <p class="name">Максим Лебединский</p>
+            <div>
+                <a href="index.html" class="name">Максим Лебединский</a>
                 <p class="subtitle">Front-end разработчик</p>
             </div>
             <nav class="navigation">
-                <a href="#" class="nav-item selected">Портфолио</a>
-                <a href="#" class="nav-item">Резюме</a>
+                <a href="index.html" class="nav-item selected">Портфолио</a>
+                <a href="./pages/resume.html" class="nav-item">Резюме</a>
                 <a href="./pages/contacts.html" class="nav-item">Контакты</a>
             </nav>
         </div>
@@ -27,7 +27,6 @@
     <main>
         <h1>Портфолио</h1>
         <div class="wrapper">
-
             <section class="portfolio-item" onclick="location.href='./pages/cube.html'">
                 <div class="portfolio-item-left">
                     <img src="images/cube.jpg" alt="cube">
@@ -173,6 +172,36 @@
                     </div>
                     <ul>
                         <li>Click buttons, scroll mouse or press UP and DOWN keys</li>
+                    </ul>
+                    <p class="portfolio-item-right-footer">HTML / CSS / Javascript</p>
+                </div>
+            </section>
+
+            <section class="portfolio-item" onclick="location.href='./pages/drag-n-drop.html'">
+                <div class="portfolio-item-left">
+                    <img src="images/drag-n-drop.png" alt="drag-n-drop">
+                </div>
+                <div class="portfolio-item-right">
+                    <div class="portfolio-item-right-header">
+                        <h2>Drag-n-Drop sample</h2>
+                        <div class="github-popup-opener" onclick="event.stopPropagation()">
+                            <div class="git-title">GitHub <i class="fas fa-angle-down"></i>
+                                <div class="github-popup-content">
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/drag-n-drop.html"
+                                        onclick="event.stopPropagation()" target="_blank">drag-n-drop.HTML</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/tree/master/scripts/drag-n-drop.js"
+                                        onclick="event.stopPropagation()" target="_blank">drag-n-drop.JS</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/drag-n-drop.css"
+                                        onclick="event.stopPropagation()" target="_blank">drag-n-drop.CSS</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
+                                        onclick="event.stopPropagation()" target="_blank">main.CSS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Drag item to another columns</li>
+                        <li>Target area is highlighting when hovered</li>
                     </ul>
                     <p class="portfolio-item-right-footer">HTML / CSS / Javascript</p>
                 </div>
