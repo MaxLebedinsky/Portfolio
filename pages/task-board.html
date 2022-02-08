@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/task-board.css">
     <script src="../scripts/task-board.js" defer></script>
+    <script src="https://kit.fontawesome.com/15cdd4c2be.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -31,9 +32,17 @@
             <div class="app">
                 <div class="boards">
                     <div class="boards-item">
-                        <span contenteditable="true" class="title">Enter title</span>
+                        <span contenteditable="true" class="title">Planning</span>
                         <div class="list">
-                            <div class="list-item" draggable="true">Start card</div>
+                            <div class="list-item" draggable="true">Card #1
+                                <i class="fas fa-times close-card-btn"></i>
+                            </div>
+                            <div class="list-item" draggable="true">Card #2
+                                <i class="fas fa-times close-card-btn"></i>
+                            </div>
+                            <div class="list-item" draggable="true">Card #3
+                                <i class="fas fa-times close-card-btn"></i>
+                            </div>
                         </div>
                         <div class="form">
                             <textarea class="textarea" placeholder="Enter card name"></textarea>

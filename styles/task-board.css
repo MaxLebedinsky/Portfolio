@@ -35,6 +35,7 @@
           flex-direction: column;
   -ms-flex-item-align: baseline;
       align-self: baseline;
+  position: relative;
   max-width: 200px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -69,6 +70,20 @@
   font-size: 14px;
   outline: none;
   border: none;
+  overflow-wrap: break-word;
+  position: relative;
+}
+
+.app .boards-item .list-item .close-card-btn {
+  position: absolute;
+  top: 1px;
+  right: 3px;
+  font-size: 0.8em;
+  color: gray;
+}
+
+.app .boards-item .list-item .close-card-btn:hover {
+  color: black;
 }
 
 .app .boards-item .form {
@@ -206,5 +221,17 @@
   color: white;
   border-radius: 3px;
   text-transform: uppercase;
+}
+
+.app .close-board-btn {
+  color: #ffffffaa;
+  cursor: pointer;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
+.app .close-board-btn:hover {
+  color: white;
 }
 /*# sourceMappingURL=task-board.css.map */
