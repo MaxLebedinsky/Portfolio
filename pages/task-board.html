@@ -31,30 +31,49 @@
         <div class="wrapper frame">
             <div class="app">
                 <div class="boards">
+
                     <div class="boards-item">
                         <span contenteditable="true" class="title">Planning</span>
                         <div class="list">
-                            <div class="list-item" draggable="true">Card #1
+                            <div class="list-item" draggable="true">DRAG ME &#10132;
                                 <i class="fas fa-times close-card-btn"></i>
                             </div>
-                            <div class="list-item" draggable="true">Card #2
+                            <div class="list-item" draggable="true">Add new task
                                 <i class="fas fa-times close-card-btn"></i>
                             </div>
-                            <div class="list-item" draggable="true">Card #3
+                            <div class="list-item" draggable="true">Delete this task
                                 <i class="fas fa-times close-card-btn"></i>
                             </div>
                         </div>
                         <div class="form">
-                            <textarea class="textarea" placeholder="Enter card name"></textarea>
+                            <textarea class="textarea" placeholder="Enter task name"></textarea>
                             <div class="buttons">
-                                <button class="add-item-btn">Add card</button>
+                                <button class="add-item-btn">Add</button>
                                 <button class="cancel-item-btn">Cancel</button>
                             </div>
                         </div>
-                        <div class="add-btn"><span> + </span>Add card</div>
+                        <div class="add-btn"><span> + </span>Add task</div>
                     </div>
+
+                    <div class="boards-item">
+                        <span contenteditable="true" class="title">In progress</span>
+                        <div class="list">
+                        </div>
+                        <i class="far fa-window-close close-board-btn"></i>
+                    </div>
+
+                    <div class="boards-item">
+                        <span contenteditable="true" class="title">Done</span>
+                        <div class="list">
+                            <div class="list-item" draggable="true">Add new board
+                                <i class="fas fa-times close-card-btn"></i>
+                            </div>
+                        </div>
+                        <i class="far fa-window-close close-board-btn"></i>
+                    </div>
+
                 </div>
-                <div class="button">Add board</div>
+                <div class="button"><span> + </span>Add board</div>
             </div>
         </div>
     </main>

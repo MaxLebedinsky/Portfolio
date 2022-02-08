@@ -1,6 +1,18 @@
 const lists = document.querySelectorAll('.list');
 const addBoardButton = document.querySelector('.button');
-document.querySelectorAll('.list-item').forEach(card => initCloseHandler(card, '.close-card-btn'));
+
+document.querySelectorAll('.list-item').forEach(card => 
+    initCloseHandler(card, '.close-card-btn'));
+
+document.querySelectorAll('.close-board-btn').forEach(btn => 
+    initCloseHandler(btn.parentNode, '.close-board-btn'));
+
+function initCloseHandler (item, selector) {
+    const closeBtn = item.querySelector(selector);
+    closeBtn.addEventListener('click', (e) => {
+        item.remove();
+    })
+}
 
 function addTask() {
     const btn = document.querySelector('.add-btn');
@@ -55,29 +67,22 @@ function addTask() {
 
 addTask();
 
-function initCloseHandler (item, selector) {
-    const closeBtn = item.querySelector(selector);
-    closeBtn.addEventListener('click', (e) => {
-        item.remove();
-    })
-}
-
 function addBoard() {
     const boards = document.querySelector('.boards');
     const board = document.createElement('div');
     board.classList.add('boards-item');
     board.innerHTML = `
-        <span contenteditable="true" class="title">Enter title</span>
+        <span contenteditable="true" class="title">Enter board title</span>
         <div class="list"></div>
         <i class="far fa-window-close close-board-btn"></i>
     `;
     boards.append(board);
 
+    initCloseHandler(board, '.close-board-btn');
+
     initChangeTitles();
 
     dragNdrop();
-
-    initDelBoards();
 }
 
 addBoardButton.addEventListener('click', addBoard);
@@ -87,7 +92,7 @@ function initChangeTitles() {
 
     titles.forEach(title => {
         title.addEventListener('click', e => {
-            if (e.target.textContent === 'Enter title') 
+            if (e.target.textContent === 'Enter board title') 
             {e.target.textContent = ''}
         });
     })
@@ -118,11 +123,6 @@ function dragNdrop() {
             }, 0);
         });
 
-        item.addEventListener('dblclick', (e) => {
-            e.stopPropagation();
-            item.remove();
-        });
-
         for (let j = 0; j < lists.length; j++) {
             const list = lists[j];
 
@@ -146,17 +146,3 @@ function dragNdrop() {
 }
 
 dragNdrop();
-
-function initDelBoards() {
-    const closeBoardButtons = document.querySelectorAll('.close-board-btn');
-
-    for (let i = 0; i < closeBoardButtons.length; i++) {
-        const cross = closeBoardButtons[i];
-        cross.addEventListener('click', (e) => {
-            let delConfirmed = confirm('Delete this board?');
-            if(delConfirmed) {e.target.parentNode.remove();}
-        });
-    }
-}
-
-initDelBoards()

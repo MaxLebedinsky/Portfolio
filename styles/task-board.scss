@@ -8,7 +8,7 @@
     width: 100%;
     height: 100%;
     padding: 50px 0;
-    background: url('../images/mountain-view.jfif') center / cover no-repeat;
+    background: linear-gradient(to bottom, #ffffff55, #ffffff33), url('../images/mountain-view.jfif') center / cover no-repeat;
 
     .boards {
         display: flex;
@@ -20,19 +20,27 @@
             flex-direction: column;
             align-self: baseline;
             position: relative;
-            max-width: 200px;
+            max-width: 195px;
+            min-height: 94px;
             width: 100%;
             background-color: rgba(0, 0, 0, .5);
             margin: 0 15px 15px;
             padding: 10px;
             transition: .3s all ease-in-out;
             border-radius: 3px;
+            box-sizing: border-box;
 
             .title {
                 padding: 5px;
                 color: white;
+                margin: 0 auto;
+                max-width: 95%;
+                overflow-wrap: break-word;
                 &:focus {
-                    outline: 1px solid rgba(168, 168, 168, .45);
+                    outline: 1px solid rgba(168, 168, 168, .4);
+                }
+                &:hover {
+                    text-shadow: 0px 0px 3px white;
                 }
             }
             
@@ -81,10 +89,11 @@
                     width: 100%;
                     box-sizing: border-box;
                     &::placeholder {
-                        font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;;
+                        font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
                     }
                     &:focus {
                         outline: none;
+                        font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
                     }
                 }
 
@@ -149,7 +158,7 @@
         justify-content: center;
         align-items: center;
         background: rgba(19, 130, 204, .6);
-        border: none;
+        border: 1px solid rgba(255, 255, 255, .5);
         width: 150px;
         cursor: pointer;
         position: absolute;
@@ -159,6 +168,12 @@
         color: white;
         border-radius: 3px;
         text-transform: uppercase;
+
+        span {
+            font-size: 1.2em;
+            margin-right: 10px;
+            color: white;
+        }
     }
 
     .close-board-btn {
@@ -169,6 +184,7 @@
         top: 4px;
         &:hover {
             color: white;
+            text-shadow: 0px 0px 3px white;
         }
     }
 }
