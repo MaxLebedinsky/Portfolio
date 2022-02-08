@@ -11,7 +11,7 @@ function initCloseHandler (item, selector) {
     const closeBtn = item.querySelector(selector);
     closeBtn.addEventListener('click', (e) => {
         item.remove();
-    })
+    });
 }
 
 function addTask() {
@@ -39,7 +39,7 @@ function addTask() {
     });
 
     cancelBtn.addEventListener('click', () => {
-    clearForm()
+    clearForm();
     });
 
     addBtn.addEventListener('click', () => {
@@ -52,7 +52,7 @@ function addTask() {
 
         initCloseHandler(newItem, '.close-card-btn');
 
-        clearForm()
+        clearForm();
 
         dragNdrop();
     });
