@@ -1,13 +1,12 @@
 :root {
     --boxColor: #0ff7;
-    // --boxColor: rgba(49, 150, 54, 0.467);
     --rotateSpeed: 30s;
     --bounceSpeed: 1.5s;
 }
 
-body {
+.frame {
     background: #000;
-    min-height: 100vh;
+    min-height: 650px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +29,6 @@ body {
     width: 1em;
     height: 1em;
     border-radius: 50%;
-    // background: lightblue;
     position: absolute;
     left: -.5em;
     bottom: 1em;
@@ -106,9 +104,7 @@ body {
         background: #0007;
         bottom: 0;
         transform: translateY(50%) rotateX(90deg);
-        box-shadow:
-            // 0 0 0.3em 0.1em rgba(0, 114, 0, 0.527),
-            0 0 .5em 0.3em #0007;
+        box-shadow: 0 0 .5em 0.3em #0007;
     }
 }
 
