@@ -1,15 +1,7 @@
-/* @import url('https://fonts.googleapis.com/css?family=Khula&display=swap'); */
-
-/* * {
-  box-sizing: border-box;
-} */
-
 .frame {
   color: #fff;
-  font-family: 'Khula', sans-serif;
   height: 650px;
   overflow: hidden;
-  /* margin: inherit auto; */
   text-align: center;
 }
 
@@ -40,17 +32,6 @@
 #start {
     margin-top: 40px;
 }
-
-/* .start {
-  font-size: 2rem;
-  border: 1px solid #fff8;
-  border-radius: 10px;
-  padding: 10px 20px;
-} */
-
-/* .start:hover {
-    border: 1px solid #16D9E3;
-} */
 
 h2 {
   line-height: 1.4;
@@ -114,10 +95,6 @@ h3 {
   opacity: 0;
 }
 
-.show {
-    opacity: 1;
-}
-
 .primary {
   color: #16D9E3;
 }
@@ -133,11 +110,11 @@ h3 {
   box-shadow: -8px -8px 20px #2A333D, 10px 7px 20px #475462;
   border-radius: 30px;
   overflow: hidden;
+  cursor: crosshair;
 }
 
 .circle {
-  /* background: linear-gradient(90deg, #16D9E3 0%, #30C7EC 47%, #46AEF7 100%); */
   position: absolute;
   border-radius: 50%;
-  cursor: pointer;
+  cursor: url('../images/aim30-2.png') 15 15, crosshair;
 }

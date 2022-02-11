@@ -1,8 +1,8 @@
 const startBtn = document.querySelector('#start');
 const screens = document.querySelectorAll('.screen');
 const timeList = document.querySelector('#time-list');
-const colors = ['#316B83', '#FF7878', '#8CA1A5', '#D5BFBF', 
-'#BFD8B8', '#E7EAB5'];
+const colors = ['#316B83', '#8CA1A5', '#31836f', '#314e83', '#6e5643',
+'#3c7a29', '#833164'];
 let time = 0;
 let score = 0;
 let timer;
@@ -42,9 +42,6 @@ function decreaseTime() {
         finishGame();
     } else {
         let current = --time;
-        // if (current < 10) {
-        //     current = `0${current}`;
-        // }
         setTime(current);
     }
 }
@@ -60,7 +57,6 @@ function finishGame() {
     </span></h2>
     <a href="#" id="restart">Restart</a>`
     const restartBtn = document.getElementById('restart');
-    console.log(restartBtn);
     restartBtn.addEventListener('click', () => {
         screens.forEach(screen => screen.classList.remove('up'));
         board.innerHTML = '';
