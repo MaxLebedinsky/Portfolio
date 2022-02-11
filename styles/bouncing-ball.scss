@@ -1,6 +1,6 @@
 :root {
     --boxColor: #0ff7;
-    --rotateSpeed: 30s;
+    --rotateSpeed: 10s;
     --bounceSpeed: 1.5s;
 }
 
@@ -12,7 +12,14 @@
     align-items: center;
     font-size: 75px;
     perspective: 10em;
-    perspective-origin: 50% calc(50% - 3em);
+    perspective-origin: 50% calc(50% - 4em);
+    animation: perspectiveOriginY var(--rotateSpeed) infinite ease-in-out;
+
+    @keyframes perspectiveOriginY {
+        0% { perspective-origin: 50% calc(50% - 4em); }
+        50% { perspective-origin: 50% calc(50% - 0em); }
+        100% { perspective-origin: 50% calc(50% - 4em); }
+    }
 }
 
 .scene {
@@ -115,8 +122,8 @@
         radial-gradient(#0000, #000 75%),
         repeating-conic-gradient(
             from 45deg, 
-            #111 0deg 90deg, 
-            #222 90deg 180deg);
+            #222 0deg 90deg, 
+            #333 90deg 180deg);
     background-size: 100%, 1em 1em;
     position: absolute;
     top: 1em;

@@ -1,6 +1,6 @@
 :root {
   --boxColor: #0ff7;
-  --rotateSpeed: 30s;
+  --rotateSpeed: 10s;
   --bounceSpeed: 1.5s;
 }
 
@@ -19,8 +19,40 @@
   font-size: 75px;
   -webkit-perspective: 10em;
           perspective: 10em;
-  -webkit-perspective-origin: 50% calc(50% - 3em);
-          perspective-origin: 50% calc(50% - 3em);
+  -webkit-perspective-origin: 50% calc(50% - 4em);
+          perspective-origin: 50% calc(50% - 4em);
+  -webkit-animation: perspectiveOriginY var(--rotateSpeed) infinite ease-in-out;
+          animation: perspectiveOriginY var(--rotateSpeed) infinite ease-in-out;
+}
+
+@-webkit-keyframes perspectiveOriginY {
+  0% {
+    -webkit-perspective-origin: 50% calc(50% - 4em);
+            perspective-origin: 50% calc(50% - 4em);
+  }
+  50% {
+    -webkit-perspective-origin: 50% calc(50% - 0em);
+            perspective-origin: 50% calc(50% - 0em);
+  }
+  100% {
+    -webkit-perspective-origin: 50% calc(50% - 4em);
+            perspective-origin: 50% calc(50% - 4em);
+  }
+}
+
+@keyframes perspectiveOriginY {
+  0% {
+    -webkit-perspective-origin: 50% calc(50% - 4em);
+            perspective-origin: 50% calc(50% - 4em);
+  }
+  50% {
+    -webkit-perspective-origin: 50% calc(50% - 0em);
+            perspective-origin: 50% calc(50% - 0em);
+  }
+  100% {
+    -webkit-perspective-origin: 50% calc(50% - 4em);
+            perspective-origin: 50% calc(50% - 4em);
+  }
 }
 
 .scene {
@@ -202,7 +234,7 @@
 .floor {
   width: 15em;
   height: 15em;
-  background-image: radial-gradient(#0000, #000 75%), repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg);
+  background-image: radial-gradient(#0000, #000 75%), repeating-conic-gradient(from 45deg, #222 0deg 90deg, #333 90deg 180deg);
   background-size: 100%, 1em 1em;
   position: absolute;
   top: 1em;
