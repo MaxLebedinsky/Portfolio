@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiming Practice Game / Portfolio - Max Lebedinsky / front-end developer</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/aiming-practice.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div>
+                <a href="../index.html" class="name">Максим Лебединский</a>
+                <p class="subtitle">Front-end разработчик</p>
+            </div>
+            <nav class="navigation">
+                <a href="../index.html" class="nav-item">Портфолио</a>
+                <a href="../pages/resume.html" class="nav-item">Резюме</a>
+                <a href="../pages/contacts.html" class="nav-item">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Aiming Practice Game</h1>
+        <div class="wrapper frame">
+            <div class="screen">
+                <h2>Aiming Practice Game</h2>
+                <a href="#" id="start">Begin game</a>
+            </div>
+
+            <div class="screen">
+                <h2>Choose time</h2>
+                <ul class="time-list" id="time-list">
+                    <li>
+                        <button class="time-btn" data-time="5">
+                            5 sec
+                        </button>
+                    </li>
+                    <li>
+                        <button class="time-btn" data-time="10">
+                            10 sec
+                        </button>
+                    </li>
+                    <li>
+                        <button class="time-btn" data-time="20">
+                            20 sec
+                        </button>
+                    </li>
+                    <li>
+                        <button class="time-btn" data-time="30">
+                            30 sec
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="screen">
+                <h3>Time left: <span id="time">00:00</span></h3>
+                <div class="board" id="board"></div>
+            </div>
+        </div>
+    </main>
+    <script src="../scripts/aiming-practice.js"></script>
+</body>
+
+</html>
