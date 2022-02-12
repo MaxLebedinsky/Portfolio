@@ -8,6 +8,9 @@ let mousePressed = false;
 let timer;
 let rotX = 0;
 let rotY = 0;
+let zoom = 1;
+const minZoom = -50;
+const maxZoom = 75;
 
 // const el = $(".card");
 // $("#top").on("mousemove", function (e) {
@@ -26,6 +29,9 @@ frame.onmouseup = () => {
 
 frame.onmouseleave = () => {
     mousePressed = false;
+    rotX = 0;
+    rotY = 0;
+    renderScene();
 }
 
 frame.onmousemove = (e) => {
@@ -42,13 +48,25 @@ frame.onmousemove = (e) => {
         } else deltaRotY = (e.movementX > 0 ? 1 : 0);
         rotY = rotY + deltaRotY;
 
-        console.log(rotX, rotY);
-        scene.style.transform = `rotateY(${rotY}deg) rotateX(${-rotX}deg)`;
-        ball.style.transform = `rotateY(${-rotY}deg) rotateX(${rotX*Math.cos(rotY * Math.PI / 180)}deg)`;
-  
+        // scene.style.transform = `rotateY(${rotY}deg) rotateX(${-rotX}deg)`;
+        // ball.style.transform = `rotateY(${-rotY}deg) rotateX(${rotX*Math.cos(rotY * Math.PI / 180)}deg)`;
+        renderScene(rotX, rotY);
+
         deltaRotX = 0;
         deltaRotY = 0;
     }
+}
+
+frame.onwheel = (e) => {
+    console.log(e.deltaY);
+    zoom = zoom - e.deltaY / 5;
+    if (zoom >= minZoom && zoom <= maxZoom) frame.style.fontSize = `${75 + zoom}px`
+    else zoom = zoom < minZoom ? minZoom : maxZoom;
+}
+
+const renderScene = (rotX = 0, rotY = 0) => {
+    scene.style.transform = `rotateY(${rotY}deg) rotateX(${-rotX}deg)`;
+    ball.style.transform = `rotateY(${-rotY}deg) rotateX(${rotX*Math.cos(rotY * Math.PI / 180)}deg)`;
 }
 
 // scene.onmousemove = (e) => {
