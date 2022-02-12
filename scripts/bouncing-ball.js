@@ -1,37 +1,38 @@
 const frame = document.querySelector('.frame');
 const scene = document.querySelector('.scene');
 const ball = document.querySelector('.ball');
-let currentRotateX = 0;
-let currentRotateY = 0;
 // console.log(window.getComputedStyle(frame));
 let mousePressed = false;
 let timer;
 let rotX = 0;
 let rotY = 0;
-let zoom = 1;
+let zoom = 0;
 const minZoom = -50;
 const maxZoom = 75;
+const rotSpeed = .5;
 
-// const el = $(".card");
-// $("#top").on("mousemove", function (e) {
-//     const rotY = -($(window).innerWidth() / 2 - e.pageX) / 8,
-//         rotX = ($(window).innerHeight() / 2 - e.pageY) / 8  - 20;
-//     el.attr("style", "transform: rotateY(" + rotY + "deg) rotateX(" + rotX + "deg);-webkit-transform: rotateY(" + rotY + "deg) rotateX(" + rotX + "deg);-moz-transform: rotateY(" + rotY + "deg) rotateX(" + rotX + "deg)");
-// });
-
-frame.onmousedown = () => {
+frame.onmousedown = (e) => {
+    e.preventDefault();
     mousePressed = true;
+    console.log('click!', rotX, rotY);
+    clearInterval(timer);
+    console.log('timer cleared', rotX, rotY);
 }
 
-frame.onmouseup = () => {
+document.onmouseup = (e) => {
+    e.preventDefault();
     mousePressed = false;
+    startRotateScene();
 }
 
-frame.onmouseleave = () => {
+frame.onmouseleave = (e) => {
+    e.preventDefault();
     mousePressed = false;
-    rotX = 0;
-    rotY = 0;
-    renderScene();
+    rotX = rotX - (rotX % 360);
+    frame.style.fontSize = `75px`;
+    // rotX = rotX % 360;
+    // rotY = rotY % 360;
+    // renderScene(rotX, rotY);
 }
 
 frame.onmousemove = (e) => {
@@ -48,9 +49,8 @@ frame.onmousemove = (e) => {
         } else deltaRotY = (e.movementX > 0 ? 1 : 0);
         rotY = rotY + deltaRotY;
 
-        // scene.style.transform = `rotateY(${rotY}deg) rotateX(${-rotX}deg)`;
-        // ball.style.transform = `rotateY(${-rotY}deg) rotateX(${rotX*Math.cos(rotY * Math.PI / 180)}deg)`;
         renderScene(rotX, rotY);
+        console.log(rotX, rotY);
 
         deltaRotX = 0;
         deltaRotY = 0;
@@ -60,8 +60,9 @@ frame.onmousemove = (e) => {
 frame.onwheel = (e) => {
     console.log(e.deltaY);
     zoom = zoom - e.deltaY / 5;
-    if (zoom >= minZoom && zoom <= maxZoom) frame.style.fontSize = `${75 + zoom}px`
-    else zoom = zoom < minZoom ? minZoom : maxZoom;
+    if (zoom < minZoom) zoom = minZoom;
+    if (zoom > maxZoom) zoom = maxZoom;
+    frame.style.fontSize = `${75 + zoom}px`
 }
 
 const renderScene = (rotX = 0, rotY = 0) => {
@@ -69,37 +70,14 @@ const renderScene = (rotX = 0, rotY = 0) => {
     ball.style.transform = `rotateY(${-rotY}deg) rotateX(${rotX*Math.cos(rotY * Math.PI / 180)}deg)`;
 }
 
-// scene.onmousemove = (e) => {
-//     rotY = -(900 / 2 - e.offsetX) / 8;
-//     rotX = -(650 / 2 - e.offsetY) / 8;
-//     console.log(rotX, rotY);
-//     scene.setAttribute("style", "transform: rotateY(" + rotY + "deg) rotateX(" + rotX + "deg);");
-// }
+const startRotateScene = () => {
+    timer = setInterval(() => {
+        renderScene(rotX, rotY);
+        // rotY = rotY >= 360 ? rotY % 360 : rotY + 1;
+        rotY = rotY + rotSpeed;
+        console.log(rotX, rotY);
+    }, 30);
+}
 
-
-// frame.onmousemove = (e) => {
-//     if (mousePressed) {
-//         if (e.movementY < 0) {
-//             deltaRotateX = -1;
-//         } else deltaRotateX = (e.movementY > 0 ? 1 : 0)
-//         currentRotateX = currentRotateX - deltaRotateX;
-//         scene.style.transform = scene.style.transform + `rotateX(${currentRotateX}deg)`;
-//         ball.style.transform = `rotateX(${-currentRotateX}deg)`;
-//         stopRotateScene();
-//     }
-// }
-
-// const stopRotateScene = () => {
-//     clearInterval(timer);
-// }
-
-// const startRotateScene = (startAngle = 0) => {
-//     timer = setInterval(() => {
-//         currentRotateY = currentRotateY + 1;
-//         scene.style.transform = `rotateY(${currentRotateY}deg)`;
-//         ball.style.transform = `rotateY(${-currentRotateY}deg)`;
-//     }, 30);
-// }
-
-// startRotateScene();
+startRotateScene();
 

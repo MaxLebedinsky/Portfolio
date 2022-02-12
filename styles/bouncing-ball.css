@@ -71,6 +71,8 @@
   width: 100%;
   height: 100%;
   background-image: radial-gradient(#0007, #0000 50%);
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
   -webkit-animation: ballShadow var(--bounceSpeed) infinite ease-in-out;
           animation: ballShadow var(--bounceSpeed) infinite ease-in-out;
 }
@@ -113,6 +115,8 @@
   left: -1em;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
   -webkit-animation: cubeHeight var(--bounceSpeed) infinite linear;
           animation: cubeHeight var(--bounceSpeed) infinite linear;
 }
@@ -195,6 +199,8 @@
   position: absolute;
   top: 1em;
   opacity: .9;
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
   -webkit-transform: translate(-50%, -50%) rotateX(90deg);
           transform: translate(-50%, -50%) rotateX(90deg);
 }
