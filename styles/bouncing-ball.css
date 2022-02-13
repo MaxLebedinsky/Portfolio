@@ -17,8 +17,8 @@
       -ms-flex-align: center;
           align-items: center;
   font-size: 75px;
-  -webkit-perspective: 15em;
-          perspective: 15em;
+  -webkit-perspective: 20em;
+          perspective: 20em;
   -webkit-perspective-origin: 50% calc(50% - 4em);
           perspective-origin: 50% calc(50% - 4em);
 }
@@ -151,6 +151,8 @@
 .cube .front {
   -webkit-transform: translateZ(1em);
           transform: translateZ(1em);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
 .cube .right {
@@ -203,5 +205,76 @@
   transition: .5s ease-out;
   -webkit-transform: translate(-50%, -50%) rotateX(90deg);
           transform: translate(-50%, -50%) rotateX(90deg);
+}
+
+.buttons {
+  position: absolute;
+  bottom: 0.6em;
+  left: -2em;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: translateZ(-1em);
+          transform: translateZ(-1em);
+}
+
+.rotation {
+  left: unset;
+  right: -2em;
+}
+
+.buttons > p {
+  font-size: .25em;
+  color: #0ffa;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 .5em aqua;
+  margin-bottom: 0.7em;
+}
+
+.buttons > .button {
+  display: block;
+  margin-bottom: .7em;
+  background: transparent;
+  text-transform: uppercase;
+  color: #0ff;
+  width: 7em;
+  height: 2.5em;
+  border-radius: .4em;
+  cursor: inherit;
+  outline: 0;
+  border: none;
+  font-size: .2em;
+  background-color: #0ff3;
+  -webkit-box-shadow: 0 0 .5em aqua inset;
+          box-shadow: 0 0 .5em aqua inset;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.disabled {
+  opacity: .3;
+}
+
+.buttons > .button:hover {
+  -webkit-transform: translateZ(0.6em);
+          transform: translateZ(0.6em);
+  text-shadow: 0 0 .5em aqua;
+  background: #0ff4;
+  color: #5ff;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.buttons > .button:active {
+  -webkit-transform: translateZ(0.5em);
+          transform: translateZ(0.5em);
+  -webkit-transition: -webkit-transform 0s;
+  transition: -webkit-transform 0s;
+  transition: transform 0s;
+  transition: transform 0s, -webkit-transform 0s;
 }
 /*# sourceMappingURL=bouncing-ball.css.map */

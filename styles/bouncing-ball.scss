@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: center;
     font-size: 75px;
-    perspective: 15em;
+    perspective: 20em;
     perspective-origin: 50% calc(50% - 4em);
     // animation: perspectiveOriginY var(--rotateSpeed) infinite ease-in-out;
 
@@ -94,7 +94,7 @@
         box-shadow: 0 0 .5em #000a inset;
     }
 
-    .front { transform: translateZ(1em); }
+    .front { transform: translateZ(1em); transform-style: preserve-3d; }
     .right { transform: rotateY(90deg) translateZ(1em); }
     .left { transform: rotateY(-90deg) translateZ(1em); }
     .back { transform: rotateY(180deg) translateZ(1em); }
@@ -136,4 +136,61 @@
     transform: 
         translate(-50%, -50%)
         rotateX(90deg);
+}
+
+.buttons {
+    position: absolute;
+    bottom: 0.6em;
+    left: -2em;
+    transform-style: preserve-3d;
+    transform: translateZ(-1em);
+}
+
+.rotation {
+    left: unset;
+    right: -2em;
+}
+
+.buttons > p {
+    font-size: .25em;
+    color: #0ffa;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 .5em aqua;
+    margin-bottom: 0.7em;
+}
+
+.buttons > .button {
+    display: block;
+    margin-bottom: .7em;
+    background: transparent;
+    text-transform: uppercase;
+    color: #0ff;
+    width: 7em;
+    height: 2.5em;
+    border-radius: .4em;
+    cursor: inherit;
+    outline: 0;
+    border: none;
+    font-size: .2em;
+    background-color: #0ff3;
+    box-shadow: 0 0 .5em aqua inset;
+    transition: transform .5s;
+}
+
+.disabled {
+    opacity: .3;
+}
+
+.buttons > .button:hover {
+    transform: translateZ(0.6em);
+    text-shadow: 0 0 .5em aqua;
+    background: #0ff4;
+    color: #5ff;
+    transition: transform .5s;
+}
+
+.buttons > .button:active {
+    transform: translateZ(.5em);
+    transition: transform 0s;
 }
