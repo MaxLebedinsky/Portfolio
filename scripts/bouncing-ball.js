@@ -9,6 +9,7 @@ const stopRotBtn = document.getElementById('stop-rotation');
 const startRotBtn = document.getElementById('start-rotation');
 // console.log(window.getComputedStyle(frame));
 let mousePressed = false;
+let shiftPressed = false;
 let rotationPaused = false;
 let timer;
 let rotX = 0;
@@ -16,6 +17,8 @@ let rotY = 0;
 let zoom = 0;
 let gradStartX = .5;
 let gradStartY = 0;
+let dX = 0;
+let dZ = 0;
 const minZoom = -50;
 const maxZoom = 75;
 const rotSpeed = .5;
@@ -25,6 +28,9 @@ frame.onmousedown = (e) => {
     e.stopPropagation();
     // console.log('onFrameMouseDOWN');
     mousePressed = true;
+    if (e.shiftKey) {
+        shiftPressed = true;
+    }
 }
 
 document.onmouseup = (e) => {
@@ -32,6 +38,7 @@ document.onmouseup = (e) => {
     e.stopPropagation();
     // console.log('onDocMouseUP');
     mousePressed = false;
+    shiftPressed = false;
 }
 
 frame.onmouseleave = (e) => {
@@ -43,7 +50,9 @@ frame.onmouseleave = (e) => {
 
 const normalizeRotX = () => {
     rotX = rotX - (rotX % 360);
-    renderScene(rotX, rotY, 0.5, 0);
+    dX = 0;
+    dZ = 0;
+    renderScene(rotX, rotY, 0.5, 0, 0, 0);
     frame.style.fontSize = `75px`;
 }
 
@@ -52,12 +61,9 @@ frame.onmousemove = (e) => {
     
     if (mousePressed) {
 
-        // console.log('onmouseMove & mousePressed');
-
         if (e.movementY < 0) {
             deltaRotX = -1;
         } else deltaRotX = (e.movementY > 0 ? 1 : 0)
-        rotX = rotX + deltaRotX * .5
        
         if (rotX > 90) { rotX = 90 }
         if(rotX < -90) { rotX = -90 }
@@ -65,13 +71,22 @@ frame.onmousemove = (e) => {
         if (e.movementX < 0) {
             deltaRotY = -1;
         } else deltaRotY = (e.movementX > 0 ? 1 : 0);
-        rotY = rotY + deltaRotY;
 
-        gradStartY = Math.cos(rotY * Math.PI / 180) / 2 * Math.sin(rotX * Math.PI / 180);
+        // console.log('onmouseMove & mousePressed');
+        if (shiftPressed) {
+            dX = dX + deltaRotY * 0.1;
+            dZ = dZ + deltaRotX * 0.1;
+        } else {
+            
+            rotX = rotX + deltaRotX * .5;
+            rotY = rotY + deltaRotY;
+    
+            gradStartY = Math.cos(rotY * Math.PI / 180) / 2 * Math.sin(rotX * Math.PI / 180);
+        }
 
         // console.log(rotX, rotY, gradStartX, gradStartY);
 
-        renderScene(rotX, rotY, gradStartX, gradStartY);
+        renderScene(rotX, rotY, gradStartX, gradStartY, dX, dZ);
 
         deltaRotX = 0;
         deltaRotY = 0;
@@ -134,13 +149,14 @@ startRotBtn.onmousedown = (e) => {
     stopRotBtn.classList.remove('disabled');
 }
 
-startBtn.onmouseup = (e) => { e.stopPropagation() }
-stopBtn.onmouseup = (e) => { e.stopPropagation() }
-startRotBtn.onmouseup = (e) => { e.stopPropagation() }
-stopRotBtn.onmouseup = (e) => { e.stopPropagation() }
+startBtn.onmouseup, stopBtn.onmouseup, startRotBtn.onmouseup, stopRotBtn.onmouseup = (e) => { e.stopPropagation() }
+// stopBtn.onmouseup = (e) => { e.stopPropagation() }
+// startRotBtn.onmouseup = (e) => { e.stopPropagation() }
+// stopRotBtn.onmouseup = (e) => { e.stopPropagation() }
 
-const renderScene = (rotX = 0, rotY = 0, gradStartX = 0.5, gradStartY = 0) => {
-    scene.style.transform = `rotateY(${rotY}deg) rotateX(${-rotX}deg)`;
+const renderScene = (rotX = 0, rotY = 0, gradStartX = 0.5, gradStartY = 0, dX = 0, dZ = 0) => {
+    scene.style.transform = `rotateY(${rotY}deg) rotateX(${-rotX}deg)
+    translateX(${dX}em) translateZ(${dZ}em)`;
 
     ball.style.transform = `rotateY(${-rotY}deg) rotateX(${rotX * Math.cos(rotY * Math.PI / 180)}deg)`;
     
@@ -149,7 +165,7 @@ const renderScene = (rotX = 0, rotY = 0, gradStartX = 0.5, gradStartY = 0) => {
 
 const startRotateScene = () => {
     timer = setInterval(() => {
-        renderScene(rotX, rotY, gradStartX, gradStartY);
+        renderScene(rotX, rotY, gradStartX, gradStartY, dX, dZ);
         rotY = rotY + rotSpeed;
     }, 30);
 }
