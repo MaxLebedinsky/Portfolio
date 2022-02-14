@@ -205,10 +205,9 @@ h2 {
     color: rgb(30, 148, 156);
 }
 
-/* .portfolio-item-right li:last-child {
-    list-style-type: none;
-    margin-left: -20px;
-} */
+.portfolio-item-right li:last-child {
+    margin-bottom: 20px;
+}
 
 .portfolio-item-right-header {
     display: flex;
