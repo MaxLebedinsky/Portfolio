@@ -26,6 +26,7 @@ const rotSpeed = .5;
 frame.onmousedown = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    // frame.style.cursor = 'grabbing';
     // console.log('onFrameMouseDOWN');
     mousePressed = true;
     if (e.shiftKey) {
@@ -39,6 +40,7 @@ document.onmouseup = (e) => {
     // console.log('onDocMouseUP');
     mousePressed = false;
     shiftPressed = false;
+    // frame.style.cursor = 'grab';
 }
 
 frame.onmouseleave = (e) => {

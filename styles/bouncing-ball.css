@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --boxColor: #0ff7;
   --rotateSpeed: 10s;
@@ -232,6 +233,7 @@
 
 .buttons > .button {
   display: block;
+  cursor: pointer;
   margin-bottom: .7em;
   background: transparent;
   text-transform: uppercase;
@@ -259,6 +261,7 @@
 .buttons > .button:hover {
   -webkit-transform: translateZ(0.6em);
           transform: translateZ(0.6em);
+  cursor: pointer;
   text-shadow: 0 0 .5em aqua;
   background: #0ff4;
   color: #5ff;
@@ -275,5 +278,23 @@
   transition: -webkit-transform 0s;
   transition: transform 0s;
   transition: transform 0s, -webkit-transform 0s;
+}
+
+.annotation {
+  font-size: 14px;
+  background: transparent;
+  color: #0ff5;
+  top: unset;
+  bottom: 20px;
+}
+
+.annotation p::before {
+  content: '•';
+  margin-right: 16px;
+}
+
+.annotation p > span, .annotation p::before {
+  color: #0ffa;
+  text-shadow: 0 0 .5em aqua;
 }
 /*# sourceMappingURL=bouncing-ball.css.map */

@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    // cursor: grab;
     font-size: 75px;
     perspective: 20em;
     perspective-origin: 50% calc(50% - 4em);
@@ -162,6 +163,7 @@
 
 .buttons > .button {
     display: block;
+    cursor: pointer;
     margin-bottom: .7em;
     background: transparent;
     text-transform: uppercase;
@@ -184,6 +186,7 @@
 
 .buttons > .button:hover {
     transform: translateZ(0.6em);
+    cursor: pointer;
     text-shadow: 0 0 .5em aqua;
     background: #0ff4;
     color: #5ff;
@@ -193,4 +196,23 @@
 .buttons > .button:active {
     transform: translateZ(.5em);
     transition: transform 0s;
+}
+
+.annotation {
+    font-size: 14px;
+    background: transparent;
+    color: #0ff5;
+    top: unset;
+    bottom: 20px;
+    // text-shadow: 0 0 .5em aqua;
+
+    p::before {
+        content: '•';
+        margin-right: 16px;
+    }
+
+    p > span, p::before {
+        color: #0ffa;
+        text-shadow: 0 0 .5em aqua;
+    }
 }

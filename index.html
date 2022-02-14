@@ -27,22 +27,21 @@
     <main>
         <h1>Портфолио</h1>
         <div class="wrapper">
-            <section class="portfolio-item" onclick="location.href='./pages/cube.html'">
+
+            <section class="portfolio-item" onclick="location.href='./pages/bouncing-ball.html'">
                 <div class="portfolio-item-left">
-                    <img src="images/cube.jpg" alt="cube">
+                    <img src="images/bouncing-ball.jpg" alt="bouncing-ball">
                 </div>
                 <div class="portfolio-item-right">
                     <div class="portfolio-item-right-header">
-                        <h2>3D Cube</h2>
+                        <h2>Bouncing Ball</h2>
                         <div class="github-popup-opener" onclick="event.stopPropagation()">
                             <div class="git-title">GitHub <i class="fas fa-angle-down"></i>
                                 <div class="github-popup-content">
-                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/cube.html"
-                                        onclick="event.stopPropagation()" target="_blank">cube.HTML</a>
-                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/scripts/cube.js"
-                                        onclick="event.stopPropagation()" target="_blank">cube.JS</a>
-                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/cube.css"
-                                        onclick="event.stopPropagation()" target="_blank">cube.CSS</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/bouncing-ball.html"
+                                        onclick="event.stopPropagation()" target="_blank">bouncing-ball.HTML</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/bouncing-ball.css"
+                                        onclick="event.stopPropagation()" target="_blank">bouncing-ball.CSS</a>
                                     <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
                                         onclick="event.stopPropagation()" target="_blank">main.CSS</a>
                                 </div>
@@ -50,11 +49,12 @@
                         </div>
                     </div>
                     <ul>
-                        <li>Rotate – click and drag</li>
-                        <li>Zoom – scroll mouse wheel</li>
-                        <li>Made with just 2 divs in HTML</li>
+                        <li>Click and drag to rotate camera view</li>
+                        <li>Shift + Click and drag to pan</li>
+                        <li>Scroll mouse wheel to zoom in / out</li>
+                        <li>Leave frame to normalize view</li>
                     </ul>
-                    <p class="portfolio-item-right-footer">HTML / CSS / Javascript</p>
+                    <p class="portfolio-item-right-footer">HTML / SCSS / Javascript</p>
                 </div>
             </section>
 
@@ -238,35 +238,6 @@
                 </div>
             </section>
 
-            <section class="portfolio-item" onclick="location.href='./pages/bouncing-ball.html'">
-                <div class="portfolio-item-left">
-                    <img src="images/bouncing-ball.jpg" alt="bouncing-ball">
-                </div>
-                <div class="portfolio-item-right">
-                    <div class="portfolio-item-right-header">
-                        <h2>Bouncing Ball</h2>
-                        <div class="github-popup-opener" onclick="event.stopPropagation()">
-                            <div class="git-title">GitHub <i class="fas fa-angle-down"></i>
-                                <div class="github-popup-content">
-                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/bouncing-ball.html"
-                                        onclick="event.stopPropagation()" target="_blank">bouncing-ball.HTML</a>
-                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/bouncing-ball.css"
-                                        onclick="event.stopPropagation()" target="_blank">bouncing-ball.CSS</a>
-                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
-                                        onclick="event.stopPropagation()" target="_blank">main.CSS</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <ul>
-                        <li>Animated ball and its shadow</li>
-                        <li>Animated box height</li>
-                        <li>Rotating scene with animated camera angle</li>
-                    </ul>
-                    <p class="portfolio-item-right-footer">HTML / SCSS</p>
-                </div>
-            </section>
-
             <section class="portfolio-item" onclick="location.href='./pages/expanding-panels.html'">
                 <div class="portfolio-item-left">
                     <img src="images/expanding-panels.png" alt="expanding-panels">
@@ -324,6 +295,37 @@
                         <li>Shoot targets as fast as you can</li>
                         <li>Time options available</li>
                         <li>Randomized target position, size and color</li>
+                    </ul>
+                    <p class="portfolio-item-right-footer">HTML / CSS / Javascript</p>
+                </div>
+            </section>
+
+            <section class="portfolio-item" onclick="location.href='./pages/cube.html'">
+                <div class="portfolio-item-left">
+                    <img src="images/cube.jpg" alt="cube">
+                </div>
+                <div class="portfolio-item-right">
+                    <div class="portfolio-item-right-header">
+                        <h2>3D Cube</h2>
+                        <div class="github-popup-opener" onclick="event.stopPropagation()">
+                            <div class="git-title">GitHub <i class="fas fa-angle-down"></i>
+                                <div class="github-popup-content">
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/pages/cube.html"
+                                        onclick="event.stopPropagation()" target="_blank">cube.HTML</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/scripts/cube.js"
+                                        onclick="event.stopPropagation()" target="_blank">cube.JS</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/cube.css"
+                                        onclick="event.stopPropagation()" target="_blank">cube.CSS</a>
+                                    <a href="https://github.com/MaxLebedinsky/Portfolio/blob/master/styles/main.css"
+                                        onclick="event.stopPropagation()" target="_blank">main.CSS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Rotate – click and drag</li>
+                        <li>Zoom – scroll mouse wheel</li>
+                        <li>Made with just 2 divs in HTML</li>
                     </ul>
                     <p class="portfolio-item-right-footer">HTML / CSS / Javascript</p>
                 </div>
