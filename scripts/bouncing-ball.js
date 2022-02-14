@@ -14,6 +14,8 @@ let timer;
 let rotX = 0;
 let rotY = 0;
 let zoom = 0;
+let gradStartX = .5;
+let gradStartY = 0;
 const minZoom = -50;
 const maxZoom = 75;
 const rotSpeed = .5;
@@ -41,7 +43,7 @@ frame.onmouseleave = (e) => {
 
 const normalizeRotX = () => {
     rotX = rotX - (rotX % 360);
-    renderScene(rotX, rotY);
+    renderScene(rotX, rotY, 0.5, 0);
     frame.style.fontSize = `75px`;
 }
 
@@ -56,7 +58,7 @@ frame.onmousemove = (e) => {
             deltaRotX = -1;
         } else deltaRotX = (e.movementY > 0 ? 1 : 0)
         rotX = rotX + deltaRotX * .5
-
+       
         if (rotX > 90) { rotX = 90 }
         if(rotX < -90) { rotX = -90 }
 
@@ -65,7 +67,11 @@ frame.onmousemove = (e) => {
         } else deltaRotY = (e.movementX > 0 ? 1 : 0);
         rotY = rotY + deltaRotY;
 
-        renderScene(rotX, rotY);
+        gradStartY = Math.cos(rotY * Math.PI / 180) / 2 * Math.sin(rotX * Math.PI / 180);
+
+        // console.log(rotX, rotY, gradStartX, gradStartY);
+
+        renderScene(rotX, rotY, gradStartX, gradStartY);
 
         deltaRotX = 0;
         deltaRotY = 0;
@@ -133,19 +139,17 @@ stopBtn.onmouseup = (e) => { e.stopPropagation() }
 startRotBtn.onmouseup = (e) => { e.stopPropagation() }
 stopRotBtn.onmouseup = (e) => { e.stopPropagation() }
 
-const renderScene = (rotX = 0, rotY = 0) => {
+const renderScene = (rotX = 0, rotY = 0, gradStartX = 0.5, gradStartY = 0) => {
     scene.style.transform = `rotateY(${rotY}deg) rotateX(${-rotX}deg)`;
 
-    ball.style.transform = `rotateY(${-rotY}deg) rotateX(${rotX * (Math.cos(rotY * Math.PI / 180))}deg)`;
-
-    // ball.style.transform = `rotateY(${-(rotY * (Math.cos(rotX * Math.PI / 180)))}deg) 
-    //                         rotateX(${rotX * (Math.cos(rotY * Math.PI / 180))}deg)`;
-
+    ball.style.transform = `rotateY(${-rotY}deg) rotateX(${rotX * Math.cos(rotY * Math.PI / 180)}deg)`;
+    
+    ball.style.backgroundImage = `radial-gradient(circle at ${gradStartX}em ${gradStartY}em, lightblue, #000)`;
 }
 
 const startRotateScene = () => {
     timer = setInterval(() => {
-        renderScene(rotX, rotY);
+        renderScene(rotX, rotY, gradStartX, gradStartY);
         rotY = rotY + rotSpeed;
     }, 30);
 }

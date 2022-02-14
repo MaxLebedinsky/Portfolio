@@ -41,11 +41,11 @@
     left: -.5em;
     bottom: 1em;
     transition: .5s ease-out;
-    background-image: radial-gradient(
-        circle at top,
-        lightblue,
-        #000
-    );
+    // background-image: radial-gradient(
+    //     circle at 0.5em 0.0em,
+    //     lightblue,
+    //     #000
+    // );
     animation:
         ballBounce var(--bounceSpeed) infinite ease-out,
         sceneRotate var(--rotateSpeed) infinite linear reverse;
