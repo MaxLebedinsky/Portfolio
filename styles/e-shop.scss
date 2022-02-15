@@ -1,13 +1,20 @@
 $dark: #07252C;
 $semidark: #1B3F48;
-$light: #96AAAF;
+$light: #a9c2c9;
 $semilight: #58787F;
 $mainback: #355962;
 $accent: #58787F;
 $light2: #BFB7AF;
 $semilight2: #93897F;
 $button: #93897F;
+$bright: #20a9b3;
 $max-width: 1200px;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 
 body{
     // font-family: 'SF Pro Display', sans-serif;
@@ -52,27 +59,55 @@ button, button:focus, button:hover, .buy-btn, .buy-btn:hover, .buy-btn:focus{
     padding: 15px 40px;
     box-sizing: border-box;
 }
-.logo{
+.logo {
     // text-transform: uppercase;
     font-weight: bold;
 }
-.btn-cart{
+.btn-cart, .btn-search {
+    position: relative;
     background-color: $light;
     padding: 10px 20px;
     // border: 1px solid transparent;
-    color: $dark;
+    font-weight: bold;
+    color: $semidark;
     border-radius: 5px;
+    padding: 10px 20px;
     transition: all ease-in-out .4s;
     cursor: pointer;
+}
+
+.btn-cart > i, .btn-search > i {
+    margin-right: 12px;
+}
+
+.btn-cart:before {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    padding: 5px 5px;
+    height: 25px;
+    min-width: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // content: var(--cartCounter);
+    content: attr(data-counter);
+    font-size: 12px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    background-color: tomato;
 }
 .btn-cart, .logo{
     align-self: center;
 }
-.btn-cart:hover{
+.btn-cart:hover, .btn-search:hover{
     // background-color: transparent;
     // border-color: #fafafa;
     // color: #fafafa;
-    background-color: white;
+    background-color: #eee;
 }
 
 /*.products {*/
@@ -157,22 +192,34 @@ p {
     height: 28px;
     overflow: hidden;
 }
+
+.desc h3 > span {
+    font-size: 0.8em;
+    opacity: .5;
+}
 .category {
     color: $semilight;
 }
 
 .brand {
     font-size: 1.2em;
+    opacity: .8;
+}
+
+.brand > span {
+    font-size: 0.8em;
+    opacity: .7;
 }
 
 .price {
-    color: white;
+    color: $light;
     font-weight: bold;
     font-size: 1.3em;
 }
-.cart{
+.header-right{
     /* position: static; */
     /* width: 50%; */
+    flex-grow: 1;
     z-index: 100;
     text-align: right;
 }
@@ -192,7 +239,12 @@ p {
     width: 70%;
     z-index: 110;
     margin: 0 auto;
+
+    h2 {
+        text-align: center;
+    }
 }
+
 .cart-block-content {
     max-height: 60vh;
     overflow-y: auto;
@@ -241,18 +293,20 @@ p {
     cursor: pointer;
 }
 
-// .buy-btn {
-//     // display: inline-block;
-//     // background-color: $semidark;
-//     // color: $light;
-// }
+.buy-btn {
+    margin-left: 16px;
+}
 
 .item-total {
     display: flex;
-    width: 80%;
-    justify-content: space-between;
+    // width: 95%;
+    justify-content: flex-end;
     align-items: flex-end;
     margin: 0 auto;
+}
+
+.item-total > button > i {
+    margin-right: 7px;
 }
 
 .del-btn {
@@ -267,8 +321,8 @@ p {
     margin:0;
     width: 28px;
     height: 28px;
-    color: white;
-    background: tomato;
+    color: tomato;
+    background: transparent;
     border-radius:50%;
     font-size: 22px;
     cursor: pointer;
@@ -276,7 +330,7 @@ p {
     transition: all ease-in-out .4s;
 }
 .del-btn:hover {
-    background: red;
+    color: red;
 }
 
 .buy-btn:hover, .minus-btn:hover, .plus-btn:hover{
@@ -297,7 +351,7 @@ p {
     margin-bottom: 40px;
 }
 .cart-item:first-child{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 .product-bio{
     display: flex;
@@ -347,13 +401,11 @@ p {
     width: 16%;
 }
 .btn-search {
-    background-color: transparent;
-    border: none;
-    color: $light;
-    font-size: 1.2em;
-    position: absolute;
-    bottom: 5px;
-    right: 0;
+    // background-color: transparent;
+    // border: none;
+    // color: $light;
+    // font-size: 1.2em;
+    margin-left: 16px;
 }
 .search-form{
     position: relative;
@@ -379,7 +431,10 @@ p {
 .btn-close {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 14px;
+    cursor: pointer;
+    background: transparent;
+    font-size: 20px;
 }
 
 @media screen and (max-width: 667px) {
@@ -417,10 +472,6 @@ p {
 
     .product-price {
         width: 20%;
-    }
-
-    .btn-cart {
-        padding: 5px 10px;
     }
 
     .header-content {

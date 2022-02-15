@@ -33,6 +33,8 @@ class List {
         if (this.container === '.cart-block-content') {
             console.log('rendering cart');
             this.updateTotal();
+            // console.log(this.allProducts);
+            // this.countItems(this.allProducts);
         }
     }
     filter(value){
@@ -67,9 +69,9 @@ class Item{
         return `<div class="product-item" data-id="${this.id_product}">
                 <img src="${IMAGES_FOLDER}${this.photo}" alt="${this.product_name}">
                     <p class="category">${this.category}</p>
-                    <p class="brand">${this.brand}
+                    <p class="brand"><span>Brand: </span>${this.brand}</p>
                 <div class="desc">
-                    <h3>${this.product_name}</h3>
+                    <h3><span>Model: </span>${this.product_name}</h3>
                     <div class="item-total">
                         <p class="price">$${this.price}</p>
                         <button class="buy-btn"
@@ -78,7 +80,7 @@ class Item{
                         data-price="${this.price}"
                         data-image="${this.photo}"
                         data-brand="${this.brand}"
-                        data-category="${this.category}">В корзину</button>
+                        data-category="${this.category}"><i class="fa-solid fa-cart-plus"></i>Add to cart</button>
                     </div>
                 </div>
             </div>`
@@ -114,7 +116,16 @@ class Cart extends List{
         this.getJson()
             .then(data => {
                 this.handleData(data.content);
+                this.countItems(this.goods);
             });
+    }
+    countItems(goods) {
+        let itemsCounter = 0;
+        // console.log('goods: ', this.goods);
+        goods.forEach(item => itemsCounter = itemsCounter + item.quantity);
+        // console.log(itemsCounter);
+        const btnCart = document.querySelector('.btn-cart');
+        btnCart.setAttribute('data-counter', itemsCounter);
     }
     addProduct(element){
                     document.querySelector('.cart-empty').classList.add('invisible');
@@ -123,8 +134,8 @@ class Cart extends List{
                     let find = this.allProducts.find(product => product.id_product === productId);
                     if(find){
                         find.quantity++;
-                        // console.log('find: ', find);
                         this._updateCart(find);
+                        // this.countItems(this.allProducts);
                     } else {
                         let product = {
                             id_product: productId,
@@ -175,9 +186,11 @@ class Cart extends List{
     //    console.log(block);
        block.querySelector('.product-quantity').textContent = `${product.quantity}`;
        block.querySelector('.product-price>span').textContent = `${product.quantity*product.price}`;
+    //    this.countItems(this.allProducts);
     }
     updateTotal() {
         document.querySelector('.cart-total').innerHTML=`Общая стоимость товаров: $<span>${this.calcSum()}</span>`;
+        this.countItems(this.allProducts);
     }
     calcSum(){
         return this.allProducts.reduce((accum, item) => accum += item.price * item.quantity, 0);
@@ -193,15 +206,15 @@ class Cart extends List{
             }
             if(e.target.classList.contains('plus-btn')){
             this.addProduct(e.target);
-            console.log(e.target);
+            // console.log(e.target);
             }
             // if(e.target.parentNode.classList.contains('del-btn')){
             //     console.log(e.target.parentNode);
             //     this.deleteProduct(e.target.parentNode);
             // }
-            if(e.target.classList.contains('del-btn')){
-                console.log(e.target);
-                this.deleteProduct(e.target);
+            if(e.target.parentNode.classList.contains('del-btn')){
+                console.log(e.target.parentNode);
+                this.deleteProduct(e.target.parentNode);
             }
             
 
@@ -259,7 +272,7 @@ class CartItem extends Item{
                     </div>
 
                 <div class="product-price">Ст-ть: $<span>${this.quantity*this.price}<span></div>
-                <button class="del-btn" data-id="${this.id_product}">&times;</button>
+                <button class="del-btn" data-id="${this.id_product}"><i class="fa-solid fa-trash-can"></i></button>
             </div>`
 }
 }
@@ -270,5 +283,9 @@ const DISPATCHER = {
 
 let cart = new Cart();
 let products = new ProductsList(cart);
+// let cartCounter = 0;
+// const btnCart = document.querySelector('.btn-cart');
+// btnCart.setAttribute('data-counter', cartCounter);
+
 // products.getJson(`getProducts.json`).then(data => products.handleData(data));
 
