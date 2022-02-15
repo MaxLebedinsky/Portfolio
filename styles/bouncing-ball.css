@@ -41,6 +41,7 @@
   bottom: 1em;
   -webkit-transition: .5s ease-out;
   transition: .5s ease-out;
+  background-image: radial-gradient(circle at 0.5em 0em, lightblue, #000);
   animation: ballBounce var(--bounceSpeed) infinite ease-out, sceneRotate var(--rotateSpeed) infinite linear reverse;
 }
 
@@ -271,15 +272,6 @@
   transition: transform .5s, -webkit-transform .5s;
 }
 
-.buttons > .button:active {
-  -webkit-transform: translateZ(0.5em);
-          transform: translateZ(0.5em);
-  -webkit-transition: -webkit-transform 0s;
-  transition: -webkit-transform 0s;
-  transition: transform 0s;
-  transition: transform 0s, -webkit-transform 0s;
-}
-
 .annotation {
   font-size: 14px;
   background: transparent;
@@ -290,7 +282,7 @@
 
 .annotation p::before {
   content: '•';
-  margin-right: 16px;
+  margin-right: 10px;
 }
 
 .annotation p > span, .annotation p::before {

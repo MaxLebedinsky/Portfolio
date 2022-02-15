@@ -10,23 +10,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // cursor: grab;
     font-size: 75px;
     perspective: 20em;
     perspective-origin: 50% calc(50% - 4em);
-    // animation: perspectiveOriginY var(--rotateSpeed) infinite ease-in-out;
-
-    // @keyframes perspectiveOriginY {
-    //     0% { perspective-origin: 50% calc(50% - 4em); }
-    //     50% { perspective-origin: 50% calc(50% - 0em); }
-    //     100% { perspective-origin: 50% calc(50% - 4em); }
-    // }
 }
 
 .scene {
     position: relative;
     transform-style: preserve-3d;
     transition: .5s ease-out;
+
+    //---------- this CSS animation is disabled 
+    //---------- to be realized by JS
     // animation: sceneRotate var(--rotateSpeed) infinite linear;
 
     // @keyframes sceneRotate {
@@ -42,11 +37,11 @@
     left: -.5em;
     bottom: 1em;
     transition: .5s ease-out;
-    // background-image: radial-gradient(
-    //     circle at 0.5em 0.0em,
-    //     lightblue,
-    //     #000
-    // );
+    background-image: radial-gradient(
+        circle at 0.5em 0.0em,
+        lightblue,
+        #000
+    );
     animation:
         ballBounce var(--bounceSpeed) infinite ease-out,
         sceneRotate var(--rotateSpeed) infinite linear reverse;
@@ -193,22 +188,16 @@
     transition: transform .5s;
 }
 
-.buttons > .button:active {
-    transform: translateZ(.5em);
-    transition: transform 0s;
-}
-
 .annotation {
     font-size: 14px;
     background: transparent;
     color: #0ff5;
     top: unset;
     bottom: 20px;
-    // text-shadow: 0 0 .5em aqua;
 
     p::before {
         content: '•';
-        margin-right: 16px;
+        margin-right: 10px;
     }
 
     p > span, p::before {

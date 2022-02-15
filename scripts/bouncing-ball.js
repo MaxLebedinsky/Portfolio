@@ -7,7 +7,7 @@ const stopBtn = document.getElementById('stop');
 const startBtn = document.getElementById('start');
 const stopRotBtn = document.getElementById('stop-rotation');
 const startRotBtn = document.getElementById('start-rotation');
-// console.log(window.getComputedStyle(frame));
+
 let mousePressed = false;
 let shiftPressed = false;
 let rotationPaused = false;
@@ -25,28 +25,18 @@ const rotSpeed = .5;
 
 frame.onmousedown = (e) => {
     e.preventDefault();
-    e.stopPropagation();
-    // frame.style.cursor = 'grabbing';
-    // console.log('onFrameMouseDOWN');
     mousePressed = true;
     if (e.shiftKey) {
         shiftPressed = true;
     }
 }
 
-document.onmouseup = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    // console.log('onDocMouseUP');
+document.onmouseup = () => {
     mousePressed = false;
     shiftPressed = false;
-    // frame.style.cursor = 'grab';
 }
 
-frame.onmouseleave = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    // console.log('onFrameLEAVE');
+frame.onmouseleave = () => {
     normalizeRotX();
 }
 
@@ -74,19 +64,16 @@ frame.onmousemove = (e) => {
             deltaRotY = -1;
         } else deltaRotY = (e.movementX > 0 ? 1 : 0);
 
-        // console.log('onmouseMove & mousePressed');
         if (shiftPressed) {
             dX = dX + deltaRotY * 0.1;
             dZ = dZ + deltaRotX * 0.1;
         } else {
             
-            rotX = rotX + deltaRotX * .5;
-            rotY = rotY + deltaRotY;
+            rotX = rotX + deltaRotX * .7;
+            rotY = rotY + deltaRotY * 1.3;
     
             gradStartY = Math.cos(rotY * Math.PI / 180) / 2 * Math.sin(rotX * Math.PI / 180);
         }
-
-        // console.log(rotX, rotY, gradStartX, gradStartY);
 
         renderScene(rotX, rotY, gradStartX, gradStartY, dX, dZ);
 
@@ -96,7 +83,6 @@ frame.onmousemove = (e) => {
 }
 
 frame.onwheel = (e) => {
-    // console.log(e.deltaY);
     zoom = zoom - e.deltaY / 5;
     if (zoom < minZoom) zoom = minZoom;
     if (zoom > maxZoom) zoom = maxZoom;
@@ -106,7 +92,6 @@ frame.onwheel = (e) => {
 stopBtn.onmousedown = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // console.log('stopBounceBtn');
     ball.style.animationPlayState = 'paused';
     ballShadow.style.animationPlayState = 'paused';
     cube.style.animationPlayState = 'paused';
@@ -117,7 +102,6 @@ stopBtn.onmousedown = (e) => {
 startBtn.onmousedown = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // console.log('startBounceBtn');
     ball.style.animationPlayState = 'running';
     ballShadow.style.animationPlayState = 'running';
     cube.style.animationPlayState = 'running';
@@ -128,21 +112,17 @@ startBtn.onmousedown = (e) => {
 stopRotBtn.onmousedown = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // console.log('stopRotBtn');
     if (!rotationPaused) {
         clearInterval(timer);
     }
     rotationPaused = true;
     startRotBtn.classList.remove('disabled');
     stopRotBtn.classList.add('disabled');
-
-    // console.log(window.getComputedStyle(scene).getPropertyValue('transform-origin'));
 }
 
 startRotBtn.onmousedown = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // console.log('startRotBtn');
     if (rotationPaused) {
         startRotateScene();
     }
@@ -151,10 +131,10 @@ startRotBtn.onmousedown = (e) => {
     stopRotBtn.classList.remove('disabled');
 }
 
-startBtn.onmouseup, stopBtn.onmouseup, startRotBtn.onmouseup, stopRotBtn.onmouseup = (e) => { e.stopPropagation() }
-// stopBtn.onmouseup = (e) => { e.stopPropagation() }
-// startRotBtn.onmouseup = (e) => { e.stopPropagation() }
-// stopRotBtn.onmouseup = (e) => { e.stopPropagation() }
+startRotBtn.onmouseup = (e) => { e.stopPropagation() }
+stopRotBtn.onmouseup = (e) => { e.stopPropagation() }
+startBtn.onmouseup = (e) => { e.stopPropagation() }
+stopBtn.onmouseup = (e) => { e.stopPropagation() }
 
 const renderScene = (rotX = 0, rotY = 0, gradStartX = 0.5, gradStartY = 0, dX = 0, dZ = 0) => {
     scene.style.transform = `rotateY(${rotY}deg) rotateX(${-rotX}deg)
