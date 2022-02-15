@@ -55,6 +55,7 @@ button, button:focus, button:hover, .buy-btn, .buy-btn:hover, .buy-btn:focus{
     margin: 0 auto;
     // background-color: $semidark;
     justify-content: space-between;
+    // align-items: center;
     color: $light;
     padding: 15px 40px;
     box-sizing: border-box;
@@ -62,11 +63,13 @@ button, button:focus, button:hover, .buy-btn, .buy-btn:hover, .buy-btn:focus{
 .logo {
     // text-transform: uppercase;
     font-weight: bold;
+    flex-grow: 1;
 }
 .btn-cart, .btn-search {
     position: relative;
     background-color: $light;
     padding: 10px 20px;
+    height: 40px;
     // border: 1px solid transparent;
     font-weight: bold;
     color: $semidark;
@@ -219,9 +222,11 @@ p {
 .header-right{
     /* position: static; */
     /* width: 50%; */
-    flex-grow: 1;
+    display: flex;
+    // flex-grow: 1;
     z-index: 100;
     text-align: right;
+
 }
 .cart-block{
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
@@ -410,22 +415,45 @@ p {
 .search-form{
     position: relative;
     margin-right: 50px;
-    display: inline-block;
+    display: flex;
 }
 .search-field:focus{
     outline: none;
+    background-color: $light;
+    &::placeholder {
+        color: transparent;
+    }
 }
 .search-field {
     box-sizing: border-box;
     min-width: 250px;
     max-width: 450px;
-    color: white;
+    height: 40px;
+    color: $semidark;
     padding: 10px;
     background-color: $semilight;
     // border: none;
     // border-bottom: 2px solid #fafafa;
     border: 1px solid $light;
     border-radius: 10px;
+    &::placeholder {
+        color: $semidark;
+    }
+}
+
+.search-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-clear {
+    position: absolute;
+    right: 10px;
+    font-size: 1.2em;
+    background-color: transparent;
+    color: $semidark;
+    cursor: pointer;
 }
 
 .btn-close {

@@ -100,9 +100,36 @@ class ProductsList extends List{
                 this.cart.addProduct(e.target);
             }
         });
+        const searchField = document.querySelector('.search-field');
+        const searchClearBtn = document.querySelector('.search-clear');
+        searchField.addEventListener('input', () => {
+            console.log('typing...');
+            if (searchField.value) searchClearBtn.classList.remove('invisible')
+            else searchClearBtn.classList.add('invisible');
+        })
+        searchField.addEventListener('keydown', (e) => {
+            // e.preventDefault();
+            if (e.keyCode === 13) {
+                console.log('enter');
+                e.preventDefault();
+                this.filter(searchField.value);
+            }
+
+            if (e.keyCode === 27) {
+                searchField.value = '';
+                this.filter('');
+                searchField.blur();
+                searchClearBtn.classList.add('invisible');
+            }
+        })
+        searchClearBtn.onclick = () => {
+            searchField.value = '';
+            searchClearBtn.classList.add('invisible');
+            this.filter('');
+        }
         document.querySelector('.search-form').addEventListener('submit', e => {
             e.preventDefault();
-            this.filter(document.querySelector('.search-field').value)
+            this.filter(searchField.value);
         })
     }
 }
