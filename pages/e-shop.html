@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snow-Shop on OOP</title>
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/e-shop.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">SNOW-Shop</div>
+            <div class="cart">
+                <div class="layover invisible"></div>
+                <form action="#" class="search-form">
+                    <input type="text" class="search-field">
+                    <button class="btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <button class="btn-cart" type="button">Корзина</button>
+                <!-- <div class="cart-block invisible">
+                        <button class="btn-close">&times;</button>
+                        <div class="cart-empty invisible">Корзина пуста</div>
+                        <div class="cart-block-content"></div>
+                        <div class="cart-total"></div>
+                    </div> -->
+            </div>
+            <div class="cart-block invisible">
+                <button class="btn-close">&times;</button>
+                <div class="cart-empty invisible">Корзина пуста</div>
+                <div class="cart-block-content"></div>
+                <div class="cart-total"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- <div class="wrapper"> -->
+        <div class="products"></div>
+        <!-- <div class="layover invisible"></div> -->
+        <!-- </div> -->
+    </main>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+        crossorigin="anonymous"></script>
+    <script src="../scripts/e-shop.js"></script>
+</body>
+
+</html>
+
+<!--<div class="cart-item" data-id="${this.id_product}">-->
+<!--<div class="product-bio">-->
+<!--<img src="${this.img}" alt="Some image">-->
+<!--<div class="product-desc">-->
+<!--<p class="product-title">${this.product_name}</p>-->
+<!--<p class="product-quantity">Quantity: ${this.quantity}</p>-->
+<!--<p class="product-single-price">$${this.price} each</p>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="right-block">-->
+<!--<p class="product-price">${this.quantity*this.price}</p>-->
+<!--<button class="del-btn" data-id="${this.id_product}">&times;</button>-->
+<!--</div>-->
+<!--</div>-->
