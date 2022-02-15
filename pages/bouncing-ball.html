@@ -30,7 +30,18 @@
             <div class="scene">
                 <div class="floor"></div>
                 <div class="cube">
-                    <div class="front"></div>
+                    <div class="front">
+                        <div class="buttons">
+                            <p>Bounce</p>
+                            <button id="stop" class="button">Stop</button>
+                            <button id="start" class="button disabled">Start</button>
+                        </div>
+                        <div class="buttons rotation">
+                            <p>Rotation</p>
+                            <button id="stop-rotation" class="button">Stop</button>
+                            <button id="start-rotation" class="button disabled">Start</button>
+                        </div>
+                    </div>
                     <div class="back"></div>
                     <div class="left"></div>
                     <div class="right"></div>
@@ -41,8 +52,15 @@
                 </div>
                 <div class="ball"></div>
             </div>
+            <div class="annotation">
+                <p><span>Click</span> and drag to rotate camera view</p>
+                <p><span>Shift + Click </span> and drag to pan</p>
+                <p><span>Scroll </span>mouse wheel to zoom in / out</p>
+                <p><span>Leave </span>frame to normalize view</p>
+            </div>
         </div>
     </main>
+    <script src="../scripts/bouncing-ball.js"></script>
 </body>
 
 </html>
