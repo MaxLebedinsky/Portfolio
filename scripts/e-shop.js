@@ -93,6 +93,7 @@ class ProductsList extends List{
         this.cart = cart;
         this.getJson()
             .then(data => this.handleData(data));
+            this.messageEl = document.querySelector('.message');
     }
     _init(){
         document.querySelector(this.container).addEventListener('click', e => {
@@ -100,6 +101,8 @@ class ProductsList extends List{
                 this.cart.addProduct(e.target);
             }
         });
+        // const messageEl = document.querySelector('.message');
+        document.addEventListener('click', () => this.messageEl.classList.add('invisible'));
         const searchField = document.querySelector('.search-field');
         const searchClearBtn = document.querySelector('.search-clear');
         searchField.addEventListener('input', () => {
@@ -113,13 +116,16 @@ class ProductsList extends List{
                 console.log('enter');
                 e.preventDefault();
                 this.filter(searchField.value);
+                if (this.filtered.length === 0) { this.showMessage('Nothing found. Try again.') }
             }
 
             if (e.keyCode === 27) {
                 searchField.value = '';
+                this.filtered = [];
                 this.filter('');
                 searchField.blur();
                 searchClearBtn.classList.add('invisible');
+                this.messageEl.classList.add('invisible');
             }
         })
         searchClearBtn.onclick = () => {
@@ -130,7 +136,14 @@ class ProductsList extends List{
         document.querySelector('.search-form').addEventListener('submit', e => {
             e.preventDefault();
             this.filter(searchField.value);
+            if (this.filtered.length === 0) { this.showMessage('Nothing found. Try again.') }
+            searchField.focus();
         })
+    }
+    showMessage(message) {
+        console.log(message);
+        this.messageEl.classList.remove('invisible');
+        this.messageEl.innerHTML = message;
     }
 }
 
@@ -227,6 +240,8 @@ class Cart extends List{
             document.querySelector('.cart-block').classList.toggle('invisible');
             document.querySelector('.layover').classList.toggle('invisible');
         });
+        // const messageEl = document.querySelector('.message');
+        
         document.querySelector('.cart-block').addEventListener('click', e => {
             if(e.target.classList.contains('minus-btn')){
                 this.decreaseProduct(e.target);
