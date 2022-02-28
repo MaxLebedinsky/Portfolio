@@ -1,0 +1,277 @@
+@font-face {
+    font-family: 'Muller';
+    src: url(../fonts/Muller/MullerBold.woff2);
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url(../fonts/Muller/MullerBoldItalic.woff2);
+    font-style: italic;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url(../fonts/Muller/MullerRegular.woff2);
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url(../fonts/Muller/MullerThin.woff2);
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Muller';
+    src: url(../fonts/Muller/MullerLight.woff2);
+    font-style: normal;
+    font-weight: 200;
+}
+
+$title-delay: 0.1s;
+
+:root {
+    font-size: 22px;
+}
+
+body {
+    font-family: 'Muller', Arial, Helvetica, sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button {
+    outline: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+img {
+    display: block;
+}
+
+.wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    color: #353235;
+}
+
+.header {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    &-left, &-right {
+        width: 15%;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        font-weight: 100;
+    }
+
+    .italic {
+        font-style: italic;
+        font-weight: 600;
+    }
+
+    &-middle {
+        color: #CDEA3B;
+        font-size: 2.5rem;
+        font-weight: 200;
+        text-align: center;
+        // overflow: hidden;
+
+        .title-container {
+            display: flex;
+            margin: 0 auto;
+            width: 100%;
+            font-size: 5rem;
+            font-weight: 600;
+
+            & .animated:nth-child(2) { animation-delay: $title-delay * 2; }
+            & .animated:nth-child(3) { animation-delay: $title-delay * 3; }
+            & .animated:nth-child(4) { animation-delay: $title-delay * 4; }
+            & .animated:nth-child(5) { animation-delay: $title-delay * 5; }
+            & .animated:nth-child(6) { animation-delay: $title-delay * 6; }
+            & .animated:nth-child(7) { animation-delay: $title-delay * 7; }
+            & .animated:nth-child(8) { animation-delay: $title-delay * 8; }
+            & .animated:nth-child(9) { animation-delay: $title-delay * 9; }
+            & .animated:nth-child(10) { animation-delay: $title-delay * 10; }
+        }
+    }
+}
+
+// .animated {
+//     transform: translateY(70vh);
+//     opacity: 0;
+//     animation: appear;
+//     animation-duration: 1s;
+//     animation-fill-mode: forwards;
+//     z-index: 3;
+// }
+
+// @keyframes appear {
+//     from {transform: translateY(70vh);}
+//     to {transform: translateY(0px); opacity: 1;}
+// }
+
+.animated {
+    transform: translate(-20rem, 0) scale(.3);
+    opacity: 0;
+    animation: from-left .8s forwards ease-out;
+    z-index: 3;
+}
+
+@keyframes from-left {
+    40% {
+		transform: translate(3rem, 0) scale(.7);
+		opacity: 1;
+		// color: #348c04;
+	}
+
+	60% {
+		// color: #0f40ba;
+	}
+
+	80% {
+		transform: translate(0) scale(2);
+		opacity: 0.2;
+	}
+
+	100% {
+		transform: translate(0) scale(1);
+		opacity: 1;
+	}
+}
+
+.flip-container {
+	perspective: 1000;
+    width: 67%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem auto 0;
+
+    img {
+        display: block;
+        width: 101%;
+    }
+}
+
+.rotated {
+    transform: rotateX(-180deg);
+    transition-delay: 0s;
+}
+
+.flipper {
+	transition: 1s ease-in-out;
+	transform-style: preserve-3d;
+    width: 16.66%;
+    padding-top: 21.09%;
+	position: relative;
+    transform-origin: 100% 50%;
+    transition-delay: 0s;
+}
+ 
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+    width: 100%;
+	top: 0;
+	left: 0;
+}
+ 
+.front {
+	z-index: 2;
+}
+ 
+.back {
+	transform: rotateX(180deg);
+}
+
+
+
+
+
+@media screen and (max-width:1440px) {   
+    :root {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:1280px) {   
+    :root {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:1024px) {   
+    :root {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:768px) {   
+    :root {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width:428px) {
+    :root {
+        font-size: 8px;
+    }
+
+    .wrapper {
+        width: 98%;
+    }
+
+    .header {
+        &-middle {
+            font-size: 2rem;
+
+            .title-container {
+                font-size: 4rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:375px) {
+    :root {
+        font-size: 7px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    :root {
+        font-size: 6px;
+    }
+
+}
+
+

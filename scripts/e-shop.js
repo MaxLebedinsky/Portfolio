@@ -94,6 +94,8 @@ class ProductsList extends List{
         this.getJson()
             .then(data => this.handleData(data));
             this.messageEl = document.querySelector('.message');
+            this.logoEl = document.querySelector('.logo');
+            this.logoEl.onclick = () => {this.filter('')}
     }
     _init(){
         document.querySelector(this.container).addEventListener('click', e => {
@@ -117,6 +119,7 @@ class ProductsList extends List{
                 e.preventDefault();
                 this.filter(searchField.value);
                 if (this.filtered.length === 0) { this.showMessage('Nothing found. Try again.') }
+                else this.messageEl.classList.add('invisible');
             }
 
             if (e.keyCode === 27) {

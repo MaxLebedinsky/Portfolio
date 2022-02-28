@@ -1,0 +1,323 @@
+@font-face {
+  font-family: 'Muller';
+  src: url(../fonts/Muller/MullerBold.woff2);
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url(../fonts/Muller/MullerBoldItalic.woff2);
+  font-style: italic;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url(../fonts/Muller/MullerRegular.woff2);
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url(../fonts/Muller/MullerThin.woff2);
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url(../fonts/Muller/MullerLight.woff2);
+  font-style: normal;
+  font-weight: 200;
+}
+
+:root {
+  font-size: 22px;
+}
+
+body {
+  font-family: 'Muller', Arial, Helvetica, sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+button {
+  outline: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+img {
+  display: block;
+}
+
+.wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  color: #353235;
+}
+
+.header {
+  width: 100%;
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header-left, .header-right {
+  width: 15%;
+  text-align: center;
+}
+
+.header p {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: 100;
+}
+
+.header .italic {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.header-middle {
+  color: #CDEA3B;
+  font-size: 2.5rem;
+  font-weight: 200;
+  text-align: center;
+}
+
+.header-middle .title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.header-middle .title-container .animated:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.header-middle .title-container .animated:nth-child(3) {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.header-middle .title-container .animated:nth-child(4) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.header-middle .title-container .animated:nth-child(5) {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.header-middle .title-container .animated:nth-child(6) {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
+.header-middle .title-container .animated:nth-child(7) {
+  -webkit-animation-delay: 0.7s;
+          animation-delay: 0.7s;
+}
+
+.header-middle .title-container .animated:nth-child(8) {
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+.header-middle .title-container .animated:nth-child(9) {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+
+.header-middle .title-container .animated:nth-child(10) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.animated {
+  -webkit-transform: translate(-20rem, 0) scale(0.3);
+          transform: translate(-20rem, 0) scale(0.3);
+  opacity: 0;
+  -webkit-animation: from-left .8s forwards ease-out;
+          animation: from-left .8s forwards ease-out;
+  z-index: 3;
+}
+
+@-webkit-keyframes from-left {
+  40% {
+    -webkit-transform: translate(3rem, 0) scale(0.7);
+            transform: translate(3rem, 0) scale(0.7);
+    opacity: 1;
+  }
+  60% {
+  }
+  80% {
+    -webkit-transform: translate(0) scale(2);
+            transform: translate(0) scale(2);
+    opacity: 0.2;
+  }
+  100% {
+    -webkit-transform: translate(0) scale(1);
+            transform: translate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes from-left {
+  40% {
+    -webkit-transform: translate(3rem, 0) scale(0.7);
+            transform: translate(3rem, 0) scale(0.7);
+    opacity: 1;
+  }
+  60% {
+  }
+  80% {
+    -webkit-transform: translate(0) scale(2);
+            transform: translate(0) scale(2);
+    opacity: 0.2;
+  }
+  100% {
+    -webkit-transform: translate(0) scale(1);
+            transform: translate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.flip-container {
+  -webkit-perspective: 1000;
+          perspective: 1000;
+  width: 67%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 1rem auto 0;
+}
+
+.flip-container img {
+  display: block;
+  width: 101%;
+}
+
+.rotated {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.flipper {
+  -webkit-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 16.66%;
+  padding-top: 21.09%;
+  position: relative;
+  -webkit-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+
+.front, .back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.front {
+  z-index: 2;
+}
+
+.back {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+@media screen and (max-width: 1440px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  :root {
+    font-size: 8px;
+  }
+  .wrapper {
+    width: 98%;
+  }
+  .header-middle {
+    font-size: 2rem;
+  }
+  .header-middle .title-container {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  :root {
+    font-size: 7px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  :root {
+    font-size: 6px;
+  }
+}
+/*# sourceMappingURL=lime-brand.css.map */

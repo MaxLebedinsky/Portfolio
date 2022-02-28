@@ -48,7 +48,7 @@ button, button:focus, button:hover, .buy-btn, .buy-btn:hover, .buy-btn:focus{
     box-sizing: border-box;
 }
 .logo {
-
+    cursor: pointer;
     height: 70px;
     background: url(../images/e-shop/logo2.png) no-repeat;
     flex-grow: 1;
